@@ -3,206 +3,158 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Adam Khemiri • Data Analyst (PL‑300)</title>
-  <meta name="description" content="Portfolio website for Adam Khemiri — Power BI • DAX • SQL • Excel. Live dashboards, projects, resume, and contact." />
+  <title>Adam Khemiri • Power BI Data Analyst (PL-300)</title>
+  <meta name="description" content="Portfolio of Adam Khemiri — Microsoft PL-300 certified Data Analyst. Power BI • DAX • SQL • Excel. Clean models, readable DAX, and app-like dashboard UX." />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Adam Khemiri • Power BI Data Analyst (PL-300)" />
+  <meta property="og:description" content="Power BI projects with clean star schemas, readable DAX, and recruiter-friendly case studies." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://adamkhemiri.github.io/" />
+  <meta property="og:image" content="img/hero.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
   <style>
     :root{
-      --bg:#0b0d12;         /* page background */
-      --card:#12151d;       /* card background */
-      --muted:#98a2b3;      /* secondary text */
-      --text:#eef2ff;       /* primary text */
-      --accent:#ffd33d;     /* Power BI yellow-ish */
-      --accent-2:#7dd3fc;   /* soft cyan for links */
-      --ring: rgba(255,211,61,.35);
-      --rounded: 16px;
-      --shadow: 0 8px 30px rgba(0,0,0,.35);
-      --maxw: 1024px;
+      --bg:#0b0d12; --card:#11151e; --muted:#9aa4b2; --text:#eef2ff;
+      --accent:#ffd33d; --link:#7dd3fc; --ring:rgba(255,211,61,.35);
+      --rounded:16px; --shadow:0 8px 30px rgba(0,0,0,.35); --maxw:1040px;
     }
     *{box-sizing:border-box}
-    html,body{margin:0; padding:0; background:var(--bg); color:var(--text); font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";}
-    a{color:var(--accent-2); text-decoration:none}
-    a:hover{opacity:.9; text-decoration:underline}
-    .wrap{max-width:var(--maxw); margin:0 auto; padding:28px 20px 80px}
-    header{display:flex; align-items:center; gap:18px; padding:18px; background:linear-gradient(180deg, rgba(255,211,61,.08), rgba(255,211,61,0)); border-radius:var(--rounded);}
-    .avatar{width:84px; height:84px; border-radius:999px; background:linear-gradient(135deg,#222,#333); display:grid; place-items:center; box-shadow:var(--shadow); border:2px solid var(--ring)}
-    .avatar span{font-weight:800; font-size:28px; letter-spacing:.5px}
-    .title h1{margin:0 0 6px; font-size:28px}
-    .title p{margin:0; color:var(--muted)}
-    .badges{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px}
-    .badge{display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px; background:#1a1f2b; border:1px solid #222; color:#e5e7eb; font-size:13px}
-    .bar{display:flex; flex-wrap:wrap; gap:10px; margin-top:16px}
-    .btn{display:inline-flex; align-items:center; gap:10px; padding:10px 14px; border-radius:10px; background:var(--accent); color:#111; font-weight:700; border:none; box-shadow:var(--shadow)}
-    .btn.secondary{background:#1f2937; color:#e5e7eb; border:1px solid #283245}
-    .btn:hover{transform:translateY(-1px)}
+    html,body{margin:0;background:var(--bg);color:var(--text);
+      font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial}
+    a{color:var(--link);text-decoration:none} a:hover{text-decoration:underline}
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:28px 20px 80px}
+    .card{background:var(--card);border:1px solid #1b2230;border-radius:var(--rounded);box-shadow:var(--shadow)}
+    header.hero{display:grid;gap:16px;padding:18px;background:linear-gradient(180deg,rgba(255,211,61,.07),rgba(0,0,0,0))}
+    @media(min-width:860px){header.hero{grid-template-columns:1.2fr .9fr}}
+    .row{display:flex;gap:18px;align-items:center}
+    .avatar{width:84px;height:84px;border-radius:999px;display:grid;place-items:center;border:2px solid var(--ring);background:#202534}
+    .avatar span{font-weight:800;font-size:28px}
+    .title h1{margin:0 0 6px;font-size:28px}
+    .title p{margin:0;color:var(--muted)}
+    .badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+    .badge{padding:8px 12px;border-radius:999px;background:#1a1f2b;border:1px solid #222;color:#e5e7eb;font-size:13px}
+    .bar{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:10px;border:none;font-weight:700}
+    .btn.primary{background:var(--accent);color:#111} .btn.secondary{background:#1f2937;color:#e5e7eb;border:1px solid #283245}
+    .btn:focus{outline:3px solid var(--ring);outline-offset:2px}
+    .about.card{padding:16px}
+    .kpis{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
+    .kpi{background:#0e121a;border:1px solid #1d2432;padding:8px 10px;border-radius:10px;color:#d1d5db;font-size:12px}
 
     section{margin-top:28px}
-    .section-title{font-size:20px; margin:0 0 12px; color:#e6edf3}
-    .card{background:var(--card); border:1px solid #1c2230; border-radius:var(--rounded); padding:18px; box-shadow:var(--shadow)}
-
-    .grid{display:grid; grid-template-columns:1fr; gap:16px}
-    @media(min-width:760px){
-      .grid{grid-template-columns:repeat(2,1fr)}
-      .hero{display:grid; grid-template-columns: 1.2fr .8fr; gap:16px}
-    }
-
-    .kpis{display:flex; gap:14px; flex-wrap:wrap; margin-top:10px}
-    .kpi{background:#0e121a; border:1px solid #1d2432; padding:10px 12px; border-radius:12px; color:#d1d5db; font-size:13px}
-
-    .proj-card{display:flex; flex-direction:column; gap:12px}
-    .thumb{width:100%; aspect-ratio: 16/9; border-radius:12px; background:#0f1320; border:1px solid #232a3a; display:grid; place-items:center; color:#94a3b8;}
-    .proj-title{margin:0; font-size:18px}
-    .pillbar{display:flex; gap:8px; flex-wrap:wrap}
-    .pill{font-size:12px; padding:6px 10px; border-radius:999px; background:#0f172a; color:#cbd5e1; border:1px solid #1e293b}
-
-    footer{margin-top:48px; text-align:center; color:var(--muted); font-size:14px}
-    .hr{height:1px; background:#1c2230; margin:24px 0}
-
-    /* small icon helpers */
-    .i{display:inline-block; vertical-align:-2px}
-    .i svg{width:18px; height:18px}
+    .section-title{font-size:20px;margin:0 0 12px}
+    .grid{display:grid;grid-template-columns:1fr;gap:16px}
+    @media(min-width:760px){.grid{grid-template-columns:repeat(2,1fr)}}
+    .proj{display:flex;flex-direction:column;gap:12px;padding:16px}
+    .thumb{width:100%;aspect-ratio:16/9;border-radius:12px;background:#0f1320;border:1px solid #232a3a;overflow:hidden}
+    .thumb img{width:100%;height:100%;object-fit:cover;display:block}
+    .pillbar{display:flex;gap:8px;flex-wrap:wrap}
+    .pill{font-size:12px;padding:6px 10px;border-radius:999px;background:#0f172a;color:#cbd5e1;border:1px solid #1e293b}
+    .hr{height:1px;background:#1c2230;margin:24px 0}
+    footer{margin-top:44px;text-align:center;color:var(--muted);font-size:14px}
   </style>
+
+  <!-- Schema.org (Person + Project) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Person",
+    "name":"Adam Khemiri",
+    "jobTitle":"Data Analyst",
+    "url":"https://adamkhemiri.github.io/",
+    "sameAs":["https://www.linkedin.com/in/adam-khemiri/","https://github.com/adamkhemiri"]
+  }
+  </script>
 </head>
 <body>
   <div class="wrap">
-    <!-- HERO / HEADER -->
-    <header class="hero card">
-      <div style="display:flex; gap:18px; align-items:center;">
-        <div class="avatar" aria-label="Avatar">
-          <span>AK</span>
-        </div>
+    <!-- HERO -->
+    <header class="hero card" role="banner">
+      <div class="row">
+        <div class="avatar" aria-label="Avatar"><span>AK</span></div>
         <div class="title">
           <h1>Adam Khemiri</h1>
-          <p>Microsoft PL‑300 • Power BI • DAX • SQL • Excel • Data Visualization</p>
+          <p>Microsoft PL-300 • Power BI • DAX • SQL • Excel</p>
           <div class="badges">
             <span class="badge">Tulsa, OK</span>
             <span class="badge">Work Authorization: <strong>EAD</strong></span>
-            <span class="badge">Languages: English • French • Arabic</span>
+            <span class="badge">English • French • Arabic</span>
           </div>
           <div class="bar">
-            <a class="btn" href="#projects" title="See projects">
-              <span class="i" aria-hidden="true"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></span>
-              Projects
-            </a>
-            <!-- Replace the # links below with your real URLs -->
-            <a class="btn secondary" href="#" target="_blank" rel="noopener">Download CV (PDF)</a>
+            <a class="btn primary" href="#projects">View Project</a>
+            <a class="btn secondary" href="CV_URL" target="_blank" rel="noopener">Download CV</a>
             <a class="btn secondary" href="https://www.linkedin.com/in/adam-khemiri/" target="_blank" rel="noopener">LinkedIn</a>
-            <a class="btn secondary" href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+            <a class="btn secondary" href="https://github.com/adamkhemiri" target="_blank" rel="noopener">GitHub</a>
             <a class="btn secondary" href="mailto:adamkhemiripro@gmail.com">Contact</a>
           </div>
         </div>
       </div>
-      <div class="card" style="background:#0f1320; border:1px dashed #263049;">
+      <div class="about card">
         <h3 class="section-title" style="margin-top:0">About</h3>
-        <p style="margin-top:6px; color:var(--muted)">Business Computing graduate and Microsoft-certified Data Analyst focused on building clean semantic models, readable DAX, and intuitive dashboards. Experienced with Power Query (M), incremental refresh patterns, RLS, and portfolio-quality storytelling. Currently developing a series of Maven Analytics projects.</p>
+        <p style="margin:6px 0;color:var(--muted)">
+          Business Computing graduate and Microsoft-certified Data Analyst focused on clean star schemas,
+          readable DAX, and app-like UX. Experienced with Power Query (M), RLS, and portfolio-quality storytelling.
+        </p>
         <div class="kpis">
           <div class="kpi">Power BI • DAX • Power Query</div>
           <div class="kpi">SQL • Excel</div>
-          <div class="kpi">Data Modeling • RLS</div>
-          <div class="kpi">Publishing • Apps • Embed</div>
+          <div class="kpi">Modeling • RLS</div>
+          <div class="kpi">Publishing • Apps</div>
         </div>
       </div>
     </header>
 
     <!-- PROJECTS -->
-    <section id="projects">
-      <h2 class="section-title">Projects</h2>
-      <div class="grid">
-        <!-- PROJECT 1 -->
-        <article class="proj-card card">
-          <div class="thumb">Add a screenshot here (Superstore)</div>
-          <h3 class="proj-title">Superstore Sales Analytics</h3>
-          <p style="color:var(--muted)">Descriptive performance dashboard with YoY analysis, margin %, and Top‑N product exploration using field parameters and DAX ranking.</p>
-          <div class="pillbar">
-            <span class="pill">Star schema</span>
-            <span class="pill">Field parameters</span>
-            <span class="pill">YoY / MoM</span>
-            <span class="pill">Drill‑through</span>
-          </div>
-          <div class="bar">
-            <!-- Replace links: LIVE = Publish to web URL; REPO = GitHub folder for the project -->
-            <a class="btn" href="https://app.powerbi.com/view?r=eyJrIjoiN2M5MmVhMDUtODM2MC00ZDUzLTg1YzYtZjI5ZmEyYTU4Yjg1IiwidCI6ImIyZDQ1OTA3LTUwOWItNDQ5Ni05YmQzLTVhNjBjN2YwZjM4MCIsImMiOjN9" target="_blank" rel="noopener">Live Demo</a>
-            <a class="btn secondary" href="#" target="_blank" rel="noopener">GitHub Repo</a>
-            <a class="btn secondary" href="#" target="_blank" rel="noopener">Read Case Study</a>
-          </div>
-          <!-- OPTIONAL: If you want to embed a public report directly, paste your Publish-to‑Web URL inside the iframe src below and remove the surrounding comment.  -->
-          <!--
-          <iframe title="Superstore" width="100%" height="480" style="border:0; border-radius:12px" src="https://app.powerbi.com/view?r=YOUR_PUBLISH_TO_WEB_TOKEN" allowfullscreen></iframe>
-          -->
-        </article>
+    <section id="projects" aria-label="Projects">
+      <h2 class="section-title">Featured Project</h2>
 
-        <!-- PROJECT 2 -->
-        <article class="proj-card card">
-          <div class="thumb">Add a screenshot here (Pizza Runner / Churn)</div>
-          <h3 class="proj-title">Customer Churn Insights</h3>
-          <p style="color:var(--muted)">Diagnostic analysis of churn by cohort and tenure with scenario testing via what‑if parameters and measure branching.</p>
-          <div class="pillbar">
-            <span class="pill">Cohorts</span>
-            <span class="pill">What‑if</span>
-            <span class="pill">Measure branching</span>
-            <span class="pill">RLS (demo)</span>
-          </div>
-          <div class="bar">
-            <a class="btn" href="#" target="_blank" rel="noopener">Live Demo</a>
-            <a class="btn secondary" href="#" target="_blank" rel="noopener">GitHub Repo</a>
-            <a class="btn secondary" href="#" target="_blank" rel="noopener">Read Case Study</a>
-          </div>
-        </article>
-
-        <!-- PROJECT 3 -->
-        <article class="proj-card card">
-          <div class="thumb">Add a screenshot here (HR / Finance KPIs)</div>
-          <h3 class="proj-title">Finance & Ops KPIs</h3>
-          <p style="color:var(--muted)">Executive KPI view with targets, variance analysis, and a semantic model tuned for refresh performance.</p>
-          <div class="pillbar">
-            <span class="pill">KPI cards</span>
-            <span class="pill">Targets & variance</span>
-            <span class="pill">Incremental refresh (mock)</span>
-          </div>
-          <div class="bar">
-            <a class="btn" href="#" target="_blank" rel="noopener">Live Demo</a>
-            <a class="btn secondary" href="#" target="_blank" rel="noopener">GitHub Repo</a>
-            <a class="btn secondary" href="#" target="_blank" rel="noopener">Read Case Study</a>
-          </div>
-        </article>
-
-        <!-- PROJECT 4 -->
-        <article class="proj-card card">
-          <div class="thumb">Add a screenshot here (Security / RLS)</div>
-          <h3 class="proj-title">RLS Security Demo</h3>
-          <p style="color:var(--muted)">Dynamic row‑level security using USERPRINCIPALNAME and bi‑directional relationships only where appropriate (with ApplySecurityFilter).</p>
-          <div class="pillbar">
-            <span class="pill">RLS</span>
-            <span class="pill">USERPRINCIPALNAME()</span>
-            <span class="pill">Model security</span>
-          </div>
-          <div class="bar">
-            <a class="btn" href="#" target="_blank" rel="noopener">Live Demo</a>
-            <a class="btn secondary" href="#" target="_blank" rel="noopener">GitHub Repo</a>
-            <a class="btn secondary" href="#" target="_blank" rel="noopener">Read Case Study</a>
-          </div>
-        </article>
-      </div>
+      <!-- Project 1: Sales Analysis -->
+      <article class="proj card" itemscope itemtype="https://schema.org/CreativeWork">
+        <meta itemprop="author" content="Adam Khemiri"/>
+        <div class="thumb" aria-hidden="true">
+          <!-- Put a 1600x900 hero image at /img/sales-analysis-hero.png -->
+          <img src="img/sales-analysis-hero.png" alt="Sales Analysis Power BI dashboard preview" loading="lazy">
+        </div>
+        <h3 itemprop="name" style="margin:2px 0 0">Sales Analysis – Power BI</h3>
+        <p style="color:var(--muted)" itemprop="description">
+          App-like report with KPI tiles, guided navigation, and page tooltips.
+          Tracks Units Sold, Gross/Net Sales, Discounts, COGS, Profit & Margin across Country and Segment.
+        </p>
+        <div class="pillbar" aria-label="Skills used">
+          <span class="pill">Star schema</span>
+          <span class="pill">Readable DAX</span>
+          <span class="pill">Bookmarks UX</span>
+          <span class="pill">Tooltips</span>
+        </div>
+        <div class="bar" style="margin-top:8px">
+          <a class="btn primary" href="LIVE_DEMO_URL" target="_blank" rel="noopener">Live Demo</a>
+          <a class="btn secondary" href="https://github.com/adamkhemiri/sales-analysis-pbi" target="_blank" rel="noopener">GitHub Repo</a>
+          <a class="btn secondary" href="https://github.com/adamkhemiri/sales-analysis-pbi/blob/main/docs/walkthrough.md" target="_blank" rel="noopener">Case Study</a>
+        </div>
+      </article>
 
       <div class="hr"></div>
-
-      <!-- CONTACT / CTA -->
-      <section class="card" style="display:flex; flex-direction:column; gap:14px; align-items:flex-start;">
-        <h3 class="section-title" style="margin:0">Get in touch</h3>
-        <p style="color:var(--muted); margin:0">Open to Data Analyst / BI roles (Power BI focus). Happy to walk through any dashboard live.</p>
-        <div class="bar">
-          <a class="btn" href="mailto:adamkhemiripro@gmail.com">Email</a>
-          <a class="btn secondary" href="https://www.linkedin.com/in/" target="_blank" rel="noopener">LinkedIn</a>
-          <a class="btn secondary" href="#" target="_blank" rel="noopener">Download CV</a>
-        </div>
-      </section>
+      <p style="color:var(--muted)">More projects are being added soon.</p>
     </section>
 
-    <footer>
-      © <span id="y"></span> Adam Khemiri • Built with ❤ using GitHub Pages
-    </footer>
+    <!-- CONTACT -->
+    <section class="card" style="margin-top:24px;padding:16px" aria-label="Contact">
+      <h3 class="section-title" style="margin-top:0">Open to Opportunities</h3>
+      <p style="color:var(--muted);margin:6px 0">
+        Open to Data Analyst / BI roles (Power BI focus). Happy to walk through any dashboard live.
+      </p>
+      <div class="bar">
+        <a class="btn primary" href="mailto:adamkhemiripro@gmail.com">Email</a>
+        <a class="btn secondary" href="https://www.linkedin.com/in/adam-khemiri/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn secondary" href="CV_URL" target="_blank" rel="noopener">Download CV</a>
+      </div>
+    </section>
+
+    <footer>© <span id="y"></span> Adam Khemiri • Built with GitHub Pages</footer>
   </div>
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
+
+  <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
 </body>
 </html>
