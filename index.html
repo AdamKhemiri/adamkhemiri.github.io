@@ -6,13 +6,12 @@
   <title>Adam Khemiri • Power BI Data Analyst (PL-300)</title>
   <meta name="description" content="Portfolio of Adam Khemiri — Microsoft PL-300 certified Data Analyst. Power BI • DAX • SQL • Excel. Clean models, readable DAX, and app-like dashboard UX." />
 
-  <!-- Open Graph / Twitter -->
+  <!-- Open Graph -->
   <meta property="og:title" content="Adam Khemiri • Power BI Data Analyst (PL-300)" />
-  <meta property="og:description" content="Power BI projects with clean star schemas, readable DAX, and recruiter-friendly case studies." />
+  <meta property="og:description" content="Power BI projects with clean star schemas, readable DAX, and recruiter-friendly visuals." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://adamkhemiri.github.io/" />
-  <meta property="og:image" content="img/hero.png" />
-  <meta name="twitter:card" content="summary_large_image" />
+  <meta property="og:image" content="img/sales-analysis-hero.png" />
 
   <style>
     :root{
@@ -45,8 +44,6 @@
 
     section{margin-top:28px}
     .section-title{font-size:20px;margin:0 0 12px}
-    .grid{display:grid;grid-template-columns:1fr;gap:16px}
-    @media(min-width:760px){.grid{grid-template-columns:repeat(2,1fr)}}
     .proj{display:flex;flex-direction:column;gap:12px;padding:16px}
     .thumb{width:100%;aspect-ratio:16/9;border-radius:12px;background:#0f1320;border:1px solid #232a3a;overflow:hidden}
     .thumb img{width:100%;height:100%;object-fit:cover;display:block}
@@ -55,18 +52,6 @@
     .hr{height:1px;background:#1c2230;margin:24px 0}
     footer{margin-top:44px;text-align:center;color:var(--muted);font-size:14px}
   </style>
-
-  <!-- Schema.org (Person + Project) -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Person",
-    "name":"Adam Khemiri",
-    "jobTitle":"Data Analyst",
-    "url":"https://adamkhemiri.github.io/",
-    "sameAs":["https://www.linkedin.com/in/adam-khemiri/","https://github.com/adamkhemiri"]
-  }
-  </script>
 </head>
 <body>
   <div class="wrap">
@@ -83,8 +68,9 @@
             <span class="badge">English • French • Arabic</span>
           </div>
           <div class="bar">
-            <a class="btn primary" href="#projects">View Project</a>
-            <a class="btn secondary" href="CV_URL" target="_blank" rel="noopener">Download CV</a>
+            <a class="btn primary" href="#project">View Project</a>
+            <!-- //////////////////// TODO: drop your resume PDF and replace the link below -->
+            <a class="btn secondary" href="assets/Adam_Khemiri_CV.pdf" target="_blank" rel="noopener">Download CV</a>
             <a class="btn secondary" href="https://www.linkedin.com/in/adam-khemiri/" target="_blank" rel="noopener">LinkedIn</a>
             <a class="btn secondary" href="https://github.com/adamkhemiri" target="_blank" rel="noopener">GitHub</a>
             <a class="btn secondary" href="mailto:adamkhemiripro@gmail.com">Contact</a>
@@ -106,32 +92,32 @@
       </div>
     </header>
 
-    <!-- PROJECTS -->
-    <section id="projects" aria-label="Projects">
+    <!-- FEATURED PROJECT -->
+    <section id="project" aria-label="Featured Project">
       <h2 class="section-title">Featured Project</h2>
 
-      <!-- Project 1: Sales Analysis -->
-      <article class="proj card" itemscope itemtype="https://schema.org/CreativeWork">
-        <meta itemprop="author" content="Adam Khemiri"/>
+      <article class="proj card">
         <div class="thumb" aria-hidden="true">
-          <!-- Put a 1600x900 hero image at /img/sales-analysis-hero.png -->
+          <!-- //////////////////// Put /img/sales-analysis-hero.png in the repo -->
           <img src="img/sales-analysis-hero.png" alt="Sales Analysis Power BI dashboard preview" loading="lazy">
         </div>
-        <h3 itemprop="name" style="margin:2px 0 0">Sales Analysis – Power BI</h3>
-        <p style="color:var(--muted)" itemprop="description">
-          App-like report with KPI tiles, guided navigation, and page tooltips.
-          Tracks Units Sold, Gross/Net Sales, Discounts, COGS, Profit & Margin across Country and Segment.
+        <h3 style="margin:2px 0 0">Sales Analysis – Power BI</h3>
+        <p style="color:var(--muted)">
+          App-like report with KPI tiles, guided navigation, page tooltips, and drill-through.
+          Tracks Units Sold, Gross/Net Sales, Discounts, COGS, Profit & Margin by Country and Segment.
         </p>
         <div class="pillbar" aria-label="Skills used">
           <span class="pill">Star schema</span>
           <span class="pill">Readable DAX</span>
           <span class="pill">Bookmarks UX</span>
           <span class="pill">Tooltips</span>
+          <span class="pill">Drill-through</span>
         </div>
         <div class="bar" style="margin-top:8px">
+          <!-- //////////////////// TODO: paste your Publish-to-Web URL below -->
           <a class="btn primary" href="LIVE_DEMO_URL" target="_blank" rel="noopener">Live Demo</a>
+          <!-- GitHub repo (public) -->
           <a class="btn secondary" href="https://github.com/adamkhemiri/sales-analysis-pbi" target="_blank" rel="noopener">GitHub Repo</a>
-          <a class="btn secondary" href="https://github.com/adamkhemiri/sales-analysis-pbi/blob/main/docs/walkthrough.md" target="_blank" rel="noopener">Case Study</a>
         </div>
       </article>
 
@@ -148,7 +134,8 @@
       <div class="bar">
         <a class="btn primary" href="mailto:adamkhemiripro@gmail.com">Email</a>
         <a class="btn secondary" href="https://www.linkedin.com/in/adam-khemiri/" target="_blank" rel="noopener">LinkedIn</a>
-        <a class="btn secondary" href="CV_URL" target="_blank" rel="noopener">Download CV</a>
+        <!-- //////////////////// TODO: same resume link as above -->
+        <a class="btn secondary" href="assets/Adam_Khemiri_CV.pdf" target="_blank" rel="noopener">Download CV</a>
       </div>
     </section>
 
