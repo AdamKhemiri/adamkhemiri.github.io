@@ -36,7 +36,8 @@
     .badge{padding:8px 12px;border-radius:999px;background:#1a1f2b;border:1px solid #222;color:#e5e7eb;font-size:13px}
     .bar{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
     .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:10px;border:none;font-weight:700}
-    .btn.primary{background:var(--accent);color:#111} .btn.secondary{background:#1f2937;color:#e5e7eb;border:1px solid #283245}
+    .btn.primary{background:var(--accent);color:#111}
+    .btn.secondary{background:#1f2937;color:#e5e7eb;border:1px solid #283245}
     .btn:focus{outline:3px solid var(--ring);outline-offset:2px}
     .about.card{padding:16px}
     .kpis{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
@@ -68,7 +69,8 @@
           </div>
           <div class="bar">
             <a class="btn primary" href="#project">View Project</a>
-            <a class="btn secondary" href="assets/Adamkhemiri_Resume.pdf" target="_blank" rel="noopener">Download CV</a>
+            <!-- Download CV (same-origin file) -->
+            <a class="btn secondary" href="assets/resume.pdf" target="_blank" rel="noopener" download="Adam-Khemiri_Resume.pdf">Download CV</a>
             <a class="btn secondary" href="https://www.linkedin.com/in/adam-khemiri/" target="_blank" rel="noopener">LinkedIn</a>
             <a class="btn secondary" href="https://github.com/adamkhemiri" target="_blank" rel="noopener">GitHub</a>
             <a class="btn secondary" href="mailto:adamkhemiripro@gmail.com">Contact</a>
@@ -96,7 +98,7 @@
 
       <article class="proj card">
         <div class="thumb" aria-hidden="true">
-          <!-- Correct path: file lives in /img -->
+          <!-- Correct path: lowercase file name -->
           <img src="img/Sales-analysis.png" alt="Sales Analysis Power BI dashboard preview" loading="lazy">
         </div>
         <h3 style="margin:2px 0 0">Sales Analysis – Power BI</h3>
@@ -130,13 +132,13 @@
       <div class="bar">
         <a class="btn primary" href="mailto:adamkhemiripro@gmail.com">Email</a>
         <a class="btn secondary" href="https://www.linkedin.com/in/adam-khemiri/" target="_blank" rel="noopener">LinkedIn</a>
-        <a class="btn secondary" href="assets/Adamkhemiri_Resume.pdf" target="_blank" rel="noopener">Download CV</a>
+        <a class="btn secondary" href="assets/resume.pdf" target="_blank" rel="noopener" download="Adam-Khemiri_Resume.pdf">Download CV</a>
       </div>
     </section>
 
     <footer>© <span id="y"></span> Adam Khemiri • Built with GitHub Pages</footer>
   </div>
 
-  <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 </html>
