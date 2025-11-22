@@ -4,11 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Adam Khemiri • Power BI Data Analyst (PL-300)</title>
-  <meta name="description" content="Portfolio of Adam Khemiri — Microsoft PL-300 certified Data Analyst. Power BI • DAX • SQL • Excel. Clean models, readable DAX, and app-like dashboard UX." />
+  <meta name="description" content="Portfolio of Adam Khemiri — Microsoft PL-300 certified Data Analyst. Power BI • DAX • SQL • Excel. Clean models, readable DAX, and business-friendly dashboards." />
 
   <!-- Open Graph (social preview) -->
   <meta property="og:title" content="Adam Khemiri • Power BI Data Analyst (PL-300)" />
-  <meta property="og:description" content="Power BI projects with clean star schemas, readable DAX, and recruiter-friendly visuals." />
+  <meta property="og:description" content="Power BI projects with clean star schemas, readable DAX, and app-like, stakeholder-friendly visuals." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://adamkhemiri.github.io/" />
   <meta property="og:image" content="https://adamkhemiri.github.io/img/Sales-analysis.png" />
@@ -20,37 +20,90 @@
       --rounded:16px; --shadow:0 8px 30px rgba(0,0,0,.35); --maxw:1040px;
     }
     *{box-sizing:border-box}
-    html,body{margin:0;background:var(--bg);color:var(--text);
-      font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial}
-    a{color:var(--link);text-decoration:none} a:hover{text-decoration:underline}
+    html,body{
+      margin:0;
+      background:var(--bg);
+      color:var(--text);
+      font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial;
+    }
+    a{color:var(--link);text-decoration:none}
+    a:hover{text-decoration:underline}
     .wrap{max-width:var(--maxw);margin:0 auto;padding:28px 20px 80px}
-    .card{background:var(--card);border:1px solid #1b2230;border-radius:var(--rounded);box-shadow:var(--shadow)}
-    header.hero{display:grid;gap:16px;padding:18px;background:linear-gradient(180deg,rgba(255,211,61,.07),rgba(0,0,0,0))}
-    @media(min-width:860px){header.hero{grid-template-columns:1.2fr .9fr}}
+    .card{
+      background:var(--card);
+      border:1px solid #1b2230;
+      border-radius:var(--rounded);
+      box-shadow:var(--shadow);
+    }
+    header.hero{
+      display:grid;
+      gap:16px;
+      padding:18px;
+      background:linear-gradient(180deg,rgba(255,211,61,.07),rgba(0,0,0,0));
+    }
+    @media(min-width:860px){
+      header.hero{grid-template-columns:1.2fr .9fr}
+    }
     .row{display:flex;gap:18px;align-items:center}
-    .avatar{width:84px;height:84px;border-radius:999px;display:grid;place-items:center;border:2px solid var(--ring);background:#202534}
+    .avatar{
+      width:84px;height:84px;border-radius:999px;
+      display:grid;place-items:center;
+      border:2px solid var(--ring);background:#202534;
+    }
     .avatar span{font-weight:800;font-size:28px}
     .title h1{margin:0 0 6px;font-size:28px}
     .title p{margin:0;color:var(--muted)}
     .badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
-    .badge{padding:8px 12px;border-radius:999px;background:#1a1f2b;border:1px solid #222;color:#e5e7eb;font-size:13px}
+    .badge{
+      padding:8px 12px;border-radius:999px;
+      background:#1a1f2b;border:1px solid #222;
+      color:#e5e7eb;font-size:13px;
+    }
     .bar{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
-    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:10px;border:none;font-weight:700}
+    .btn{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:10px 14px;border-radius:10px;border:none;
+      font-weight:700;cursor:pointer;
+    }
     .btn.primary{background:var(--accent);color:#111}
     .btn.secondary{background:#1f2937;color:#e5e7eb;border:1px solid #283245}
     .btn:focus{outline:3px solid var(--ring);outline-offset:2px}
     .about.card{padding:16px}
     .kpis{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
-    .kpi{background:#0e121a;border:1px solid #1d2432;padding:8px 10px;border-radius:10px;color:#d1d5db;font-size:12px}
+    .kpi{
+      background:#0e121a;border:1px solid #1d2432;
+      padding:8px 10px;border-radius:10px;
+      color:#d1d5db;font-size:12px;
+    }
     section{margin-top:28px}
     .section-title{font-size:20px;margin:0 0 12px}
     .proj{display:flex;flex-direction:column;gap:12px;padding:16px}
-    .thumb{width:100%;aspect-ratio:16/9;border-radius:12px;background:#0f1320;border:1px solid #232a3a;overflow:hidden}
+    .thumb{
+      width:100%;aspect-ratio:16/9;border-radius:12px;
+      background:#0f1320;border:1px solid #232a3a;overflow:hidden;
+    }
     .thumb img{width:100%;height:100%;object-fit:cover;display:block}
     .pillbar{display:flex;gap:8px;flex-wrap:wrap}
-    .pill{font-size:12px;padding:6px 10px;border-radius:999px;background:#0f172a;color:#cbd5e1;border:1px solid #1e293b}
+    .pill{
+      font-size:12px;padding:6px 10px;border-radius:999px;
+      background:#0f172a;color:#cbd5e1;border:1px solid #1e293b;
+    }
     .hr{height:1px;background:#1c2230;margin:24px 0}
     footer{margin-top:44px;text-align:center;color:var(--muted);font-size:14px}
+
+    /* Projects grid */
+    .projects-grid{
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+    }
+    @media (min-width:980px){
+      .projects-grid{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        align-items:stretch;
+      }
+    }
   </style>
 </head>
 <body>
@@ -68,7 +121,7 @@
             <span class="badge">English • French • Arabic</span>
           </div>
           <div class="bar">
-            <a class="btn primary" href="#project">View Project</a>
+            <a class="btn primary" href="#projects">View Projects</a>
             <!-- Download CV (same-origin file) -->
             <a class="btn secondary" href="assets/resume.pdf" target="_blank" rel="noopener" download="Adam-Khemiri_Resume.pdf">Download CV</a>
             <a class="btn secondary" href="https://www.linkedin.com/in/adam-khemiri/" target="_blank" rel="noopener">LinkedIn</a>
@@ -81,7 +134,8 @@
         <h3 class="section-title" style="margin-top:0">About</h3>
         <p style="margin:6px 0;color:var(--muted)">
           Business Computing graduate and Microsoft-certified Data Analyst focused on clean star schemas,
-          readable DAX, and app-like UX. Experienced with Power Query (M), RLS, and portfolio-quality storytelling.
+          readable DAX, and app-like report experiences. Comfortable working with stakeholders to turn
+          business questions into clear, actionable dashboards.
         </p>
         <div class="kpis">
           <div class="kpi">Power BI • DAX • Power Query</div>
@@ -92,42 +146,80 @@
       </div>
     </header>
 
-    <!-- FEATURED PROJECT -->
-    <section id="project" aria-label="Featured Project">
-      <h2 class="section-title">Featured Project</h2>
+    <!-- PROJECTS -->
+    <section id="projects" aria-label="Projects">
+      <h2 class="section-title">Featured Projects</h2>
 
-      <article class="proj card">
-        <div class="thumb" aria-hidden="true">
-          <!-- Correct path: lowercase file name -->
-          <img src="img/Sales-analysis.png" alt="Sales Analysis Power BI dashboard preview" loading="lazy">
-        </div>
-        <h3 style="margin:2px 0 0">Sales Analysis – Power BI</h3>
-        <p style="color:var(--muted)">
-          App-like report with KPI tiles, guided navigation, page tooltips, and drill-through.
-          Tracks Units Sold, Gross/Net Sales, Discounts, COGS, Profit & Margin by Country and Segment.
-        </p>
-        <div class="pillbar" aria-label="Skills used">
-          <span class="pill">Star schema</span>
-          <span class="pill">Readable DAX</span>
-          <span class="pill">Bookmarks UX</span>
-          <span class="pill">Tooltips</span>
-          <span class="pill">Drill-through</span>
-        </div>
-        <div class="bar" style="margin-top:8px">
-          <a class="btn primary" href="https://app.powerbi.com/view?r=eyJrIjoiMjYxMGRjNTctOGQwOC00YjVhLTliNDMtYzQwYzQ2YjFiMDNiIiwidCI6ImIyZDQ1OTA3LTUwOWItNDQ5Ni05YmQzLTVhNjBjN2YwZjM4MCIsImMiOjN9" target="_blank" rel="noopener">Live Demo</a>
-          <a class="btn secondary" href="https://github.com/AdamKhemiri/Sales-Analysis-pbi" target="_blank" rel="noopener">GitHub Repo</a>
-        </div>
-      </article>
+      <div class="projects-grid">
+        <!-- Sales Analysis -->
+        <article class="proj card">
+          <div class="thumb" aria-hidden="true">
+            <img src="img/Sales-analysis.png" alt="Sales Analysis Power BI dashboard preview" loading="lazy">
+          </div>
+          <h3 style="margin:2px 0 0">Sales Analysis – Power BI</h3>
+          <p style="color:var(--muted)">
+            End-to-end sales performance dashboard designed for non-technical business users.
+            Uses KPI tiles, guided navigation, page tooltips, and drill-through to analyze performance
+            across periods, segments, countries, and products.
+          </p>
+          <ul style="margin:4px 0 6px 18px;font-size:13px;color:var(--muted);padding-left:18px">
+            <li>Monitor units, revenue, discounts, COGS, profit, and margin.</li>
+            <li>Compare performance by time, segment, country, and product.</li>
+            <li>Quickly spot underperforming segments or products.</li>
+          </ul>
+          <div class="pillbar" aria-label="Skills used">
+            <span class="pill">Star schema</span>
+            <span class="pill">Readable DAX</span>
+            <span class="pill">Bookmarks UX</span>
+            <span class="pill">Tooltips</span>
+            <span class="pill">Drill-through</span>
+          </div>
+          <div class="bar" style="margin-top:8px">
+            <a class="btn primary" href="https://app.powerbi.com/view?r=eyJrIjoiMjYxMGRjNTctOGQwOC00YjVhLTliNDMtYzQwYzQ2YjFiMDNiIiwidCI6ImIyZDQ1OTA3LTUwOWItNDQ5Ni05YmQzLTVhNjBjN2YwZjM4MCIsImMiOjN9" target="_blank" rel="noopener">Live Demo</a>
+            <a class="btn secondary" href="https://github.com/AdamKhemiri/Sales-Analysis-pbi" target="_blank" rel="noopener">GitHub Repo</a>
+          </div>
+        </article>
+
+        <!-- Maven Airline -->
+        <article class="proj card">
+          <div class="thumb" aria-hidden="true">
+            <img src="img/maven-airline.png" alt="Maven Airline loyalty analytics Power BI dashboard preview" loading="lazy">
+          </div>
+          <h3 style="margin:2px 0 0">Maven Airline – Loyalty Program Analysis</h3>
+          <p style="color:var(--muted)">
+            Airline loyalty dashboard focused on member activity, value, and retention.
+            App-like navigation (Period, Location, Profile, Loyalty pages), rich tooltips, and drill-through
+            make it easy for non-technical stakeholders to explore performance.
+          </p>
+          <ul style="margin:4px 0 6px 18px;font-size:13px;color:var(--muted);padding-left:18px">
+            <li>Track flights, member activity, and engagement over time.</li>
+            <li>Analyze CLV and profitability by member profile and segment.</li>
+            <li>Understand points issuance versus redemption behavior.</li>
+          </ul>
+          <div class="pillbar" aria-label="Skills used">
+            <span class="pill">Loyalty analytics</span>
+            <span class="pill">CLV</span>
+            <span class="pill">Bookmarks UX</span>
+            <span class="pill">Tooltips & drill-through</span>
+            <span class="pill">Star schema</span>
+          </div>
+          <div class="bar" style="margin-top:8px">
+            <a class="btn primary" href="https://app.powerbi.com/view?r=eyJrIjoiMmVlM2ZlNTctYjU4MS00OTAxLTg4MmUtYWNkNjg1Y2Q3MGYzIiwidCI6ImIyZDQ1OTA3LTUwOWItNDQ5Ni05YmQzLTVhNjBjN2YwZjM4MCIsImMiOjN9" target="_blank" rel="noopener">Live Demo</a>
+            <a class="btn secondary" href="https://github.com/AdamKhemiri/Maven-Airline-Analysis-pbi" target="_blank" rel="noopener">GitHub Repo</a>
+          </div>
+        </article>
+      </div>
 
       <div class="hr"></div>
-      <p style="color:var(--muted)">More projects are being added soon.</p>
+      <p style="color:var(--muted)">More projects will be added as I rebuild and publish additional reports.</p>
     </section>
 
     <!-- CONTACT -->
     <section class="card" style="margin-top:24px;padding:16px" aria-label="Contact">
       <h3 class="section-title" style="margin-top:0">Open to Opportunities</h3>
       <p style="color:var(--muted);margin:6px 0">
-        Open to Data Analyst / BI roles (Power BI focus). Happy to walk through any dashboard live.
+        Open to Data Analyst / BI roles (Power BI focus). Happy to walk through any dashboard live
+        and discuss how it was modeled, built, and optimized.
       </p>
       <div class="bar">
         <a class="btn primary" href="mailto:adamkhemiripro@gmail.com">Email</a>
@@ -139,6 +231,8 @@
     <footer>© <span id="y"></span> Adam Khemiri • Built with GitHub Pages</footer>
   </div>
 
-  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
