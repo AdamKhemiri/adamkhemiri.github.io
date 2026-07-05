@@ -4,17 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Adam Khemiri • Reporting / Power BI Portfolio</title>
+  <title>Adam Khemiri • Power BI, SQL & Reporting Portfolio</title>
   <meta
     name="description"
-    content="Adam Khemiri — PL-300 certified Reporting / Power BI portfolio featuring dashboard projects built with Power BI, SQL, and Excel, plus supporting IT documentation experience."
+    content="Adam Khemiri — Power BI, SQL and reporting portfolio focused on BI dashboards, KPI reporting, data modeling, business systems, and IT/data hybrid experience."
   />
+  <meta name="author" content="Adam Khemiri" />
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Adam Khemiri • Reporting / Power BI Portfolio" />
+  <meta property="og:title" content="Adam Khemiri • Power BI, SQL & Reporting Portfolio" />
   <meta
     property="og:description"
-    content="PL-300 certified Reporting / Power BI portfolio with Power BI dashboard projects, KPI reporting work, and supporting IT documentation experience."
+    content="Reporting and BI portfolio featuring Power BI dashboards, SQL-supported analysis, KPI reporting, data modeling, and supporting IT/business systems experience."
   />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://adamkhemiri.github.io/" />
@@ -30,234 +30,229 @@
   <style>
     :root{
       --bg:#0B1020;
-      --card:#121A2B;
-      --card-alt:#0F172A;
-      --muted:#94A3B8;
+      --surface:#101827;
+      --surface-2:#121D32;
+      --surface-3:#0F172A;
       --text:#E8EEF8;
+      --text-strong:#FFFFFF;
+      --muted:#A5B4C8;
+      --muted-2:#7F8EA5;
       --primary:#4F8CFF;
-      --primary-hover:#3B82F6;
+      --primary-dark:#3B72DD;
       --accent:#14B8A6;
+      --stroke:#24334E;
+      --stroke-soft:#1B2840;
       --ring:rgba(79,140,255,.35);
-      --rounded:14px;
-      --shadow:0 10px 24px rgba(2,8,23,.22);
-      --maxw:1120px;
-      --stroke:#22304A;
+      --shadow:0 18px 40px rgba(2,8,23,.28);
+      --radius:16px;
+      --radius-sm:12px;
+      --maxw:1140px;
     }
 
     *{box-sizing:border-box}
+
     html{scroll-behavior:smooth}
 
     body{
       margin:0;
-      background:
-        radial-gradient(900px 500px at 10% -10%, rgba(79,140,255,.14), transparent 55%),
-        radial-gradient(700px 400px at 90% 0%, rgba(20,184,166,.08), transparent 45%),
-        var(--bg);
       color:var(--text);
-      font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      background:
+        radial-gradient(900px 520px at 8% -10%, rgba(79,140,255,.16), transparent 56%),
+        radial-gradient(760px 460px at 95% 0%, rgba(20,184,166,.10), transparent 50%),
+        linear-gradient(180deg, #0B1020 0%, #0A0F1D 100%);
+      font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
       line-height:1.6;
     }
 
     img{max-width:100%;display:block}
 
-    a{
-      color:inherit;
-      text-decoration:none;
-    }
+    a{color:inherit;text-decoration:none}
 
-    a:hover{text-decoration:none}
-
-    button{
-      font:inherit;
-      border:0;
-      background:none;
-    }
+    button{font:inherit}
 
     .skip-link{
       position:absolute;
       left:16px;
-      top:-48px;
+      top:-60px;
+      z-index:999;
+      padding:10px 14px;
+      border-radius:999px;
       background:#fff;
       color:#111827;
-      padding:10px 14px;
-      border-radius:10px;
-      z-index:1000;
+      font-weight:700;
       transition:top .2s ease;
-      font-weight:600;
     }
 
     .skip-link:focus{top:16px}
 
     .wrap{
-      max-width:var(--maxw);
+      width:min(100% - 40px, var(--maxw));
       margin:0 auto;
-      padding:24px 20px 72px;
+      padding:24px 0 72px;
     }
 
-    .card{
-      background:rgba(18,26,43,.95);
+    .topnav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      padding:6px 2px 18px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      color:#DCE7F8;
+      font-size:14px;
+      font-weight:800;
+      letter-spacing:.01em;
+      white-space:nowrap;
+    }
+
+    .brand-mark{
+      display:grid;
+      place-items:center;
+      width:34px;
+      height:34px;
       border:1px solid var(--stroke);
-      border-radius:var(--rounded);
+      border-radius:10px;
+      background:rgba(79,140,255,.12);
+      color:#fff;
+      font-size:13px;
+      letter-spacing:.03em;
+    }
+
+    .nav-links{
+      display:flex;
+      align-items:center;
+      justify-content:flex-end;
+      flex-wrap:wrap;
+      gap:16px;
+    }
+
+    .nav-links a{
+      color:var(--muted);
+      font-size:14px;
+      font-weight:600;
+      transition:color .16s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible{color:var(--text-strong)}
+
+    .card{
+      border:1px solid var(--stroke);
+      border-radius:var(--radius);
+      background:rgba(16,24,39,.92);
       box-shadow:var(--shadow);
+    }
+
+    .hero{
+      display:grid;
+      gap:26px;
+      padding:32px;
+      background:
+        linear-gradient(180deg, rgba(79,140,255,.08), rgba(79,140,255,0) 50%),
+        rgba(16,24,39,.96);
+    }
+
+    @media (min-width: 960px){
+      .hero{
+        grid-template-columns:minmax(0,1.48fr) minmax(310px,.88fr);
+        align-items:start;
+      }
     }
 
     .eyebrow{
       display:inline-flex;
       align-items:center;
-      gap:8px;
+      gap:9px;
       margin:0 0 14px;
-      color:#B9C7DB;
-      font-size:13px;
-      font-weight:700;
-      letter-spacing:.04em;
+      color:#C4D2E7;
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:.08em;
       text-transform:uppercase;
     }
 
     .eyebrow::before{
       content:"";
-      width:10px;
-      height:10px;
+      width:9px;
+      height:9px;
       border-radius:999px;
-      background:var(--primary);
-      box-shadow:0 0 0 6px rgba(79,140,255,.14);
+      background:var(--accent);
+      box-shadow:0 0 0 6px rgba(20,184,166,.12);
     }
 
-    .topnav{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:16px;
-      padding:8px 2px 18px;
-      color:var(--muted);
-    }
+    h1,
+    h2,
+    h3,
+    p{margin-top:0}
 
-    .brand{
-      font-size:14px;
-      font-weight:700;
-      color:#D9E4F5;
+    .profile-name{
+      margin:0 0 8px;
+      color:#BFD0E8;
+      font-size:1rem;
+      font-weight:800;
       letter-spacing:.01em;
     }
 
-    .topnav .links{
-      display:flex;
-      flex-wrap:wrap;
-      gap:18px;
-      align-items:center;
+    .hero h1{
+      max-width:820px;
+      margin-bottom:16px;
+      color:var(--text-strong);
+      font-size:clamp(2.35rem, 5.2vw, 4.55rem);
+      line-height:.98;
+      letter-spacing:-.055em;
     }
 
-    .topnav .links a{
-      color:var(--muted);
-      font-size:14px;
-      font-weight:500;
-      transition:color .18s ease;
-    }
-
-    .topnav .links a:hover,
-    .topnav .links a:focus-visible{
-      color:var(--text);
-    }
-
-    .hero{
-      display:grid;
-      gap:24px;
-      padding:30px;
-      background:
-        linear-gradient(180deg, rgba(79,140,255,.06), rgba(79,140,255,0) 50%),
-        rgba(18,26,43,.96);
-    }
-
-    @media (min-width: 960px){
-      .hero{
-        grid-template-columns:minmax(0,1.55fr) minmax(300px,.9fr);
-        align-items:start;
-      }
-    }
-
-    .hero-main h1{
-      margin:0;
-      font-size:clamp(2rem, 4vw, 3rem);
-      line-height:1.08;
-      letter-spacing:-.03em;
-    }
-
-    .hero-sub{
-      margin:16px 0 0;
-      max-width:760px;
-      font-size:1.0625rem;
-      color:#D6E0F0;
+    .hero-subtitle{
+      max-width:820px;
+      margin-bottom:0;
+      color:#D9E5F5;
+      font-size:clamp(1.02rem, 2vw, 1.22rem);
+      line-height:1.65;
     }
 
     .hero-copy{
+      max-width:780px;
       margin:14px 0 0;
-      max-width:740px;
+      color:var(--muted);
       font-size:1rem;
-      color:var(--muted);
     }
 
-    .badges{
+    .action-row,
+    .contact-actions,
+    .project-actions{
       display:flex;
       flex-wrap:wrap;
-      gap:10px;
-      margin-top:18px;
+      gap:11px;
     }
 
-    .badge{
-      display:inline-flex;
-      align-items:center;
-      min-height:36px;
-      padding:8px 12px;
-      border-radius:999px;
-      border:1px solid var(--stroke);
-      background:rgba(15,23,42,.85);
-      color:#D7E1F1;
-      font-size:13px;
-      font-weight:500;
-    }
-
-    .hero-actions{
-      display:flex;
-      flex-wrap:wrap;
-      gap:12px;
-      margin-top:22px;
-    }
-
-    .hero-subactions{
-      margin-top:12px;
-      font-size:14px;
-      color:var(--muted);
-    }
-
-    .hero-subactions a{
-      color:#DDE7F7;
-      text-decoration:underline;
-      text-underline-offset:3px;
-    }
+    .action-row{margin-top:24px}
 
     .btn{
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      min-height:44px;
+      min-height:43px;
       padding:0 15px;
-      border-radius:10px;
       border:1px solid transparent;
-      font-size:14px;
-      font-weight:600;
-      line-height:1;
+      border-radius:11px;
       cursor:pointer;
-      transition:
-        background-color .18s ease,
-        border-color .18s ease,
-        color .18s ease,
-        transform .18s ease;
+      font-size:14px;
+      font-weight:750;
+      line-height:1;
+      transition:transform .16s ease, background-color .16s ease, border-color .16s ease, color .16s ease;
     }
 
     .btn:hover{transform:translateY(-1px)}
 
     .btn:focus-visible,
-    .topnav a:focus-visible{
+    .nav-links a:focus-visible{
       outline:3px solid var(--ring);
-      outline-offset:2px;
+      outline-offset:3px;
     }
 
     .btn.primary{
@@ -265,90 +260,128 @@
       color:#fff;
     }
 
-    .btn.primary:hover{
-      background:var(--primary-hover);
-    }
+    .btn.primary:hover{background:var(--primary-dark)}
 
     .btn.secondary{
-      background:transparent;
-      color:var(--text);
       border-color:var(--stroke);
+      background:rgba(15,23,42,.56);
+      color:#E6EEFB;
     }
 
     .btn.secondary:hover{
-      background:rgba(79,140,255,.08);
-      border-color:#33517e;
+      border-color:#36527E;
+      background:rgba(79,140,255,.10);
     }
 
     .btn.small{
-      min-height:38px;
+      min-height:36px;
       padding:0 12px;
+      border-radius:10px;
       font-size:13px;
     }
 
-    .hero-side{
-      padding:22px;
-      background:rgba(15,23,42,.85);
-      border:1px solid var(--stroke);
-      border-radius:12px;
+    .hero-note{
+      margin:13px 0 0;
+      color:var(--muted-2);
+      font-size:13px;
     }
 
-    .hero-side h2{
-      margin:0 0 14px;
-      font-size:1rem;
+    .hero-note a{
+      color:#DDE7F7;
+      text-decoration:underline;
+      text-underline-offset:3px;
+    }
+
+    .snapshot{
+      display:grid;
+      gap:14px;
+      padding:20px;
+      border:1px solid var(--stroke);
+      border-radius:var(--radius-sm);
+      background:rgba(15,23,42,.74);
+    }
+
+    .snapshot h2{
+      margin-bottom:2px;
+      color:#F4F7FB;
+      font-size:1.05rem;
       line-height:1.2;
     }
 
-    .snapshot-list{
-      list-style:none;
-      margin:0;
-      padding:0;
+    .snapshot-grid{
       display:grid;
       gap:10px;
     }
 
-    .snapshot-list li{
-      display:flex;
-      gap:10px;
-      align-items:flex-start;
-      color:#D7E2F2;
+    .snapshot-item{
+      padding:13px;
+      border:1px solid var(--stroke-soft);
+      border-radius:12px;
+      background:rgba(16,24,39,.78);
+    }
+
+    .snapshot-item strong{
+      display:block;
+      margin-bottom:3px;
+      color:#F4F7FB;
       font-size:14px;
+      line-height:1.35;
     }
 
-    .snapshot-list li::before{
-      content:"";
-      flex:0 0 8px;
-      width:8px;
-      height:8px;
-      margin-top:.5em;
+    .snapshot-item span{
+      display:block;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.5;
+    }
+
+    .target-list{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin:18px 0 0;
+      padding:0;
+      list-style:none;
+    }
+
+    .target-list li,
+    .pill,
+    .status{
+      display:inline-flex;
+      align-items:center;
+      min-height:29px;
+      padding:5px 10px;
+      border:1px solid var(--stroke);
       border-radius:999px;
-      background:var(--accent);
-      box-shadow:0 0 0 6px rgba(20,184,166,.10);
+      background:rgba(15,23,42,.72);
+      color:#CAD7EA;
+      font-size:12px;
+      font-weight:650;
+      line-height:1.2;
     }
 
-    main section{
-      margin-top:60px;
-    }
+    main section{margin-top:58px}
 
     .section-header{
       display:flex;
       flex-wrap:wrap;
-      justify-content:space-between;
       align-items:end;
-      gap:14px;
-      margin-bottom:18px;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom:19px;
     }
 
     .section-title{
-      margin:0;
-      font-size:1.5rem;
+      margin-bottom:8px;
+      color:#F4F7FB;
+      font-size:clamp(1.45rem, 2.4vw, 2rem);
       line-height:1.15;
-      letter-spacing:-.02em;
+      letter-spacing:-.025em;
     }
 
     .section-copy{
-      margin:0;
-      max-width:740px;
+      max-width:780px;
+      margin-bottom:0;
       color:var(--muted);
       font-size:.98rem;
     }
@@ -356,56 +389,131 @@
     .filterbar{
       display:flex;
       flex-wrap:wrap;
-      gap:10px;
-      margin-top:14px;
+      gap:9px;
     }
 
     .projects-grid{
       display:grid;
-      gap:18px;
       grid-template-columns:1fr;
+      gap:18px;
     }
 
-    @media (min-width: 900px){
-      .projects-grid{
-        grid-template-columns:1fr 1fr;
-      }
+    @media (min-width: 830px){
+      .projects-grid{grid-template-columns:repeat(2, minmax(0,1fr))}
     }
 
-    .proj{
+    .project-card{
       display:flex;
       flex-direction:column;
-      gap:14px;
-      padding:20px;
-      height:100%;
+      min-height:100%;
+      overflow:hidden;
     }
 
-    .thumb{
-      width:100%;
+    .project-media{
       aspect-ratio:16 / 9;
       overflow:hidden;
-      border-radius:12px;
-      border:1px solid var(--stroke);
+      border-bottom:1px solid var(--stroke);
       background:#0A1222;
     }
 
-    .thumb img{
+    .project-media img{
       width:100%;
       height:100%;
       object-fit:cover;
     }
 
-    .proj h3{
-      margin:0;
-      font-size:1.18rem;
-      line-height:1.25;
-      letter-spacing:-.02em;
+    .project-placeholder{
+      display:grid;
+      place-items:center;
+      height:100%;
+      padding:22px;
+      text-align:center;
+      background:
+        linear-gradient(135deg, rgba(79,140,255,.16), rgba(20,184,166,.08)),
+        #0A1222;
     }
 
-    .proj p{
-      margin:0;
+    .project-placeholder strong{
+      display:block;
+      margin-bottom:6px;
+      color:#F4F7FB;
+      font-size:18px;
+      line-height:1.2;
+    }
+
+    .project-placeholder span{
       color:var(--muted);
-      font-size:.97rem;
+      font-size:13px;
+      line-height:1.5;
+    }
+
+    .project-body{
+      display:flex;
+      flex:1;
+      flex-direction:column;
+      gap:13px;
+      padding:20px;
+    }
+
+    .project-kicker{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      align-items:center;
+      margin-bottom:-2px;
+    }
+
+    .status.featured{
+      border-color:rgba(79,140,255,.38);
+      background:rgba(79,140,255,.12);
+      color:#CFE0FF;
+    }
+
+    .status.supporting{
+      border-color:rgba(20,184,166,.35);
+      background:rgba(20,184,166,.10);
+      color:#A7F3D0;
+    }
+
+    .project-card h3{
+      margin-bottom:0;
+      color:#F4F7FB;
+      font-size:1.16rem;
+      line-height:1.25;
+      letter-spacing:-.018em;
+    }
+
+    .project-card p{
+      margin-bottom:0;
+      color:var(--muted);
+      font-size:.96rem;
+    }
+
+    .project-points{
+      display:grid;
+      gap:7px;
+      margin:0;
+      padding:0;
+      list-style:none;
+    }
+
+    .project-points li{
+      position:relative;
+      padding-left:17px;
+      color:#D6E2F3;
+      font-size:13.5px;
+      line-height:1.5;
+    }
+
+    .project-points li::before{
+      content:"";
+      position:absolute;
+      left:0;
+      top:.62em;
+      width:6px;
+      height:6px;
+      border-radius:999px;
+      background:var(--primary);
     }
 
     .pillbar{
@@ -414,126 +522,134 @@
       gap:8px;
     }
 
-    .pill{
-      display:inline-flex;
-      align-items:center;
-      min-height:30px;
-      padding:5px 10px;
-      border-radius:999px;
-      background:#0F172A;
-      color:#C7D2E4;
-      border:1px solid var(--stroke);
-      font-size:12px;
-      font-weight:500;
-    }
+    .project-actions{margin-top:auto;padding-top:4px}
 
-    .proj-actions{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      margin-top:auto;
-      padding-top:2px;
-    }
-
-    .support-grid{
+    .foundation-grid,
+    .cert-grid{
       display:grid;
-      gap:18px;
       grid-template-columns:1fr;
-    }
-
-    .support-card{
-      padding:22px;
-      display:grid;
       gap:16px;
     }
 
+    @media (min-width: 760px){
+      .foundation-grid{grid-template-columns:repeat(2, minmax(0,1fr))}
+      .cert-grid{grid-template-columns:repeat(4, minmax(0,1fr))}
+    }
+
+    .mini-card{
+      padding:19px;
+      border:1px solid var(--stroke);
+      border-radius:var(--radius-sm);
+      background:rgba(16,24,39,.82);
+    }
+
+    .mini-card h3{
+      margin-bottom:8px;
+      color:#F4F7FB;
+      font-size:1rem;
+      line-height:1.25;
+    }
+
+    .mini-card p{
+      margin-bottom:13px;
+      color:var(--muted);
+      font-size:.94rem;
+    }
+
+    .mini-list{
+      display:grid;
+      gap:7px;
+      margin:0;
+      padding:0;
+      list-style:none;
+    }
+
+    .mini-list li{
+      color:#D6E2F3;
+      font-size:13.5px;
+    }
+
+    .support-card,
+    .contact-card{
+      padding:24px;
+    }
+
+    .support-layout{
+      display:grid;
+      gap:18px;
+    }
+
     @media (min-width: 900px){
-      .support-card{
-        grid-template-columns:minmax(0,1.2fr) minmax(240px,.7fr);
+      .support-layout{
+        grid-template-columns:minmax(0,1.2fr) minmax(280px,.7fr);
         align-items:start;
       }
     }
 
-    .support-meta{
-      display:grid;
-      gap:14px;
-      align-content:start;
+    .support-panel{
       padding:18px;
-      border-radius:12px;
-      background:rgba(15,23,42,.7);
-      border:1px solid var(--stroke);
+      border:1px solid var(--stroke-soft);
+      border-radius:var(--radius-sm);
+      background:rgba(15,23,42,.62);
     }
 
-    .support-meta h3,
-    .contact-card h3{
-      margin:0;
-      font-size:1.1rem;
-      line-height:1.2;
+    .support-panel h3{
+      margin-bottom:8px;
+      color:#F4F7FB;
+      font-size:1rem;
     }
 
-    .support-meta p,
-    .contact-card p{
-      margin:0;
+    .support-panel p{
+      margin-bottom:13px;
       color:var(--muted);
-      font-size:.96rem;
-    }
-
-    .list-tight{
-      list-style:none;
-      margin:0;
-      padding:0;
-      display:grid;
-      gap:8px;
-    }
-
-    .list-tight li{
-      color:#D7E2F2;
-      font-size:14px;
-      padding-left:16px;
-      position:relative;
-    }
-
-    .list-tight li::before{
-      content:"";
-      position:absolute;
-      left:0;
-      top:.66em;
-      width:6px;
-      height:6px;
-      border-radius:999px;
-      background:var(--primary);
+      font-size:.94rem;
     }
 
     .contact-card{
-      padding:24px;
       display:grid;
       gap:16px;
+      background:
+        linear-gradient(135deg, rgba(79,140,255,.09), rgba(20,184,166,.06)),
+        rgba(16,24,39,.96);
     }
 
-    .contact-actions{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
+    .contact-card p{
+      max-width:850px;
+      margin-bottom:0;
+      color:var(--muted);
     }
 
     footer{
       margin-top:42px;
+      color:var(--muted-2);
       text-align:center;
-      color:var(--muted);
       font-size:13px;
     }
 
     [hidden]{display:none !important}
 
-    @media (max-width: 680px){
-      .wrap{padding:18px 14px 60px}
-      .hero{padding:22px}
-      .topnav{
-        flex-direction:column;
-        align-items:flex-start;
-        gap:10px;
+    @media (max-width: 700px){
+      .wrap{width:min(100% - 28px, var(--maxw));padding-top:18px}
+      .topnav{align-items:flex-start;flex-direction:column}
+      .nav-links{justify-content:flex-start;gap:12px}
+      .hero{padding:24px}
+      .hero h1{letter-spacing:-.04em}
+      .snapshot{padding:16px}
+      .section-header{align-items:flex-start}
+      .btn{width:100%}
+      .filterbar .btn,
+      .project-actions .btn,
+      .contact-actions .btn{width:auto}
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      html{scroll-behavior:auto}
+      *, *::before, *::after{
+        scroll-behavior:auto !important;
+        transition-duration:.01ms !important;
+        animation-duration:.01ms !important;
+        animation-iteration-count:1 !important;
       }
-      .section-header{align-items:start}
     }
   </style>
 </head>
@@ -542,376 +658,437 @@
   <a class="skip-link" href="#main">Skip to main content</a>
 
   <div class="wrap">
-    <nav class="topnav" aria-label="Primary">
-      <div class="brand">Adam Khemiri</div>
-      <div class="links">
+    <nav class="topnav" aria-label="Primary navigation">
+      <a class="brand" href="#top" aria-label="Adam Khemiri portfolio home">
+        <span class="brand-mark" aria-hidden="true">AK</span>
+        <span>Adam Khemiri</span>
+      </a>
+
+      <div class="nav-links">
         <a href="#projects">Projects</a>
-        <a href="assets/Adam-Khemiri_Resume-Data-Analyst.pdf" target="_blank" rel="noopener">Reporting Resume</a>
-        <a href="https://www.linkedin.com/in/adam-khemiri/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="#foundation">Skills</a>
+        <a href="#certifications">Certifications</a>
+        <a href="assets/Adam-Khemiri_Resume-Data-Analyst.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
         <a href="#contact">Contact</a>
       </div>
     </nav>
 
-    <header class="hero card" role="banner">
-      <div class="hero-main">
-        <p class="eyebrow">Reporting / Power BI Portfolio</p>
+    <header id="top" class="hero card" role="banner">
+      <div>
+        <p class="eyebrow">Power BI, SQL &amp; Reporting Portfolio</p>
+        <p class="profile-name">Adam Khemiri</p>
 
-        <h1>Adam Khemiri</h1>
+        <h1>Power BI, SQL &amp; Reporting Portfolio.</h1>
 
-        <p class="hero-sub">
-          PL-300 certified professional transitioning from IT Support into Reporting / BI
-          through Power BI dashboards, KPI reporting, and SQL/Excel-supported analysis.
+        <p class="hero-subtitle">
+          Reporting and BI projects built with Power BI, DAX, SQL-supported analysis, data modeling,
+          KPI reporting, and clear business documentation.
         </p>
 
         <p class="hero-copy">
-          I build clear, business-facing reporting projects and document my work in a way
-          that is easy for recruiters, hiring managers, and non-technical stakeholders to review.
+          I combine a Bachelor&apos;s in Management Information Systems, PL-300 certification, SQL training,
+          and hands-on IT support experience across Microsoft 365, Active Directory, ticketing systems,
+          endpoint tools, remote troubleshooting, healthcare/business applications, and technical documentation.
+          That background helps me approach reporting work with practical systems context, clean documentation,
+          and strong communication with technical and non-technical users.
         </p>
 
-        <div class="badges" aria-label="Location and availability">
-          <span class="badge">Tulsa / Owasso, OK</span>
-          <span class="badge">Open to onsite, hybrid, or remote roles</span>
-          <span class="badge">Authorized to work in the U.S.</span>
+        <ul class="target-list" aria-label="Target roles">
+          <li>Reporting Analyst</li>
+          <li>Power BI Analyst</li>
+          <li>Data Analyst</li>
+          <li>BI Analyst</li>
+          <li>Business Data Analyst</li>
+          <li>Operations/Data Analyst</li>
+          <li>Application Support Analyst</li>
+          <li>IT/Data Hybrid</li>
+        </ul>
+
+        <div class="action-row" aria-label="Portfolio links">
+          <a class="btn primary" href="#projects">View BI Projects</a>
+          <a class="btn secondary" href="assets/Adam-Khemiri_Resume-Data-Analyst.pdf" target="_blank" rel="noopener noreferrer">Download Resume</a>
+          <a class="btn secondary" href="https://www.linkedin.com/in/adam-khemiri/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a class="btn secondary" href="https://github.com/AdamKhemiri" target="_blank" rel="noopener noreferrer">GitHub</a>
         </div>
 
-        <div class="hero-actions">
-          <a class="btn primary" href="#projects">View Reporting Projects</a>
-          <a
-            class="btn secondary"
-            href="assets/Adam-Khemiri_Resume-Data-Analyst.pdf"
-            target="_blank"
-            rel="noopener"
-          >
-            Download Reporting Resume
-          </a>
-          <a
-            class="btn secondary"
-            href="https://www.linkedin.com/in/adam-khemiri/"
-            target="_blank"
-            rel="noopener"
-          >
-            LinkedIn
-          </a>
-          <a
-            class="btn secondary"
-            href="https://github.com/AdamKhemiri"
-            target="_blank"
-            rel="noopener"
-          >
-            GitHub
-          </a>
-        </div>
-
-        <p class="hero-subactions">
-          Also available:
-          <a
-            href="assets/Adam-Khemiri_Resume-IT-Support.pdf"
-            target="_blank"
-            rel="noopener"
-          >
-            IT Support Resume
-          </a>
+        <p class="hero-note">
+          Supporting IT resume also available for hybrid support/reporting roles:
+          <a href="assets/Adam-Khemiri_Resume-IT-Support.pdf" target="_blank" rel="noopener noreferrer">IT Support Resume</a>
         </p>
       </div>
 
-      <aside class="hero-side" aria-label="Analyst snapshot">
-        <h2>Analyst Snapshot</h2>
-        <ul class="snapshot-list">
-          <li>Microsoft PL-300 certified</li>
-          <li>Power BI, SQL, Excel, and KPI reporting focus</li>
-          <li>Portfolio projects designed for business-facing reporting use cases</li>
-          <li>Clear documentation and presentation style for non-technical audiences</li>
-          <li>IT Support background that strengthens troubleshooting, communication, and operational discipline</li>
-        </ul>
+      <aside class="snapshot" aria-label="Recruiter snapshot">
+        <h2>Recruiter Snapshot</h2>
+
+        <div class="snapshot-grid">
+          <div class="snapshot-item">
+            <strong>Current focus</strong>
+            <span>Power BI dashboards, KPI reporting, SQL, DAX, data modeling, and business-facing BI projects.</span>
+          </div>
+
+          <div class="snapshot-item">
+            <strong>Credential signal</strong>
+            <span>Microsoft PL-300 certified with additional Power BI, Advanced DAX, and SQL for Data Analysis training.</span>
+          </div>
+
+          <div class="snapshot-item">
+            <strong>Business systems edge</strong>
+            <span>IT support background across Microsoft 365, Active Directory, business apps, ticketing systems, and documentation.</span>
+          </div>
+
+          <div class="snapshot-item">
+            <strong>Location &amp; work style</strong>
+            <span>Tulsa / Owasso, OK. Open to onsite, hybrid, or remote conversations where the role fit is strong.</span>
+          </div>
+
+          <div class="snapshot-item">
+            <strong>Communication</strong>
+            <span>Comfortable explaining technical work to non-technical users in English, French, and Arabic.</span>
+          </div>
+        </div>
       </aside>
     </header>
 
     <main id="main">
-      <section id="projects" aria-label="Featured Reporting and BI Projects">
+      <section id="projects" aria-labelledby="projects-title">
         <div class="section-header">
           <div>
-            <h2 class="section-title">Featured Reporting &amp; BI Projects</h2>
+            <p class="eyebrow">Featured Work</p>
+            <h2 id="projects-title" class="section-title">Featured Reporting &amp; BI Projects</h2>
             <p class="section-copy">
-              These projects reflect the direction I am targeting: Power BI dashboards,
-              KPI reporting, model-driven reporting structure, and recruiter-friendly presentation.
+              Selected projects showing the current direction of this portfolio: Power BI dashboards,
+              KPI reporting, DAX, SQL-supported analysis, clean documentation, and business-facing presentation.
             </p>
+          </div>
 
-            <div class="filterbar" role="toolbar" aria-label="Project filter">
-              <button class="btn primary small" type="button" data-filter="data" aria-pressed="true">
-                Data / BI
-              </button>
-              <button class="btn secondary small" type="button" data-filter="all" aria-pressed="false">
-                All
-              </button>
-              <button class="btn secondary small" type="button" data-filter="it" aria-pressed="false">
-                IT Support
-              </button>
-            </div>
+          <div class="filterbar" role="toolbar" aria-label="Project filter">
+            <button class="btn primary small" type="button" data-filter="bi" aria-pressed="true">BI Projects</button>
+            <button class="btn secondary small" type="button" data-filter="all" aria-pressed="false">All</button>
+            <button class="btn secondary small" type="button" data-filter="support" aria-pressed="false">Supporting IT</button>
           </div>
         </div>
 
         <div class="projects-grid">
-          <article class="proj card" data-type="data">
-            <div class="thumb">
-              <img
-                src="img/Sales-analysis.png"
-                alt="Sales Analysis Power BI dashboard preview"
-                loading="lazy"
-              />
+          <article class="project-card card" data-type="bi">
+            <div class="project-media">
+              <img src="img/Sales-analysis.png" alt="Sales Analysis Power BI dashboard preview" loading="lazy" decoding="async" />
             </div>
 
-            <h3>Sales Analysis – Power BI</h3>
+            <div class="project-body">
+              <div class="project-kicker">
+                <span class="status featured">Featured BI Project</span>
+                <span class="status">Power BI</span>
+              </div>
 
-            <p>
-              Power BI dashboard for sales performance reporting built around a star-schema model
-              and business-facing KPI views. Includes guided navigation, drill-through, and tooltips
-              designed to help non-technical users explore performance by product, customer, and time period.
-            </p>
+              <h3>Sales Analysis — Power BI Dashboard</h3>
 
-            <div class="pillbar" aria-label="Skills used">
-              <span class="pill">Power BI</span>
-              <span class="pill">DAX</span>
-              <span class="pill">Star schema</span>
-              <span class="pill">KPI reporting</span>
-            </div>
+              <p>
+                Business-facing sales reporting project focused on executive KPI visibility, trend analysis,
+                and interactive exploration by product, customer, and time period.
+              </p>
 
-            <div class="proj-actions">
-              <a
-                class="btn primary"
-                href="https://app.powerbi.com/view?r=eyJrIjoiY2YyNjkxMWYtMmEzNS00MTUzLWFhZDctNTQ2MmM4MTI1MzE0IiwidCI6ImIyZDQ1OTA3LTUwOWItNDQ5Ni05YmQzLTVhNjBjN2YwZjM4MCIsImMiOjN9"
-                target="_blank"
-                rel="noopener"
-              >
-                Live Dashboard
-              </a>
-              <a
-                class="btn secondary"
-                href="https://github.com/AdamKhemiri/Sales-Analysis-pbi"
-                target="_blank"
-                rel="noopener"
-              >
-                GitHub Repo
-              </a>
+              <ul class="project-points">
+                <li>Designed a reporting model around sales performance, customer behavior, and time-based analysis.</li>
+                <li>Used DAX measures, guided navigation, drill-through, and tooltips to support self-service exploration.</li>
+                <li>Presented the dashboard as a recruiter-friendly BI case study with a live report and GitHub repository.</li>
+              </ul>
+
+              <div class="pillbar" aria-label="Skills used in Sales Analysis project">
+                <span class="pill">Power BI</span>
+                <span class="pill">DAX</span>
+                <span class="pill">Data modeling</span>
+                <span class="pill">KPI reporting</span>
+                <span class="pill">Dashboard design</span>
+              </div>
+
+              <div class="project-actions">
+                <a class="btn primary" href="https://app.powerbi.com/view?r=eyJrIjoiY2YyNjkxMWYtMmEzNS00MTUzLWFhZDctNTQ2MmM4MTI1MzE0IiwidCI6ImIyZDQ1OTA3LTUwOWItNDQ5Ni05YmQzLTVhNjBjN2YwZjM4MCIsImMiOjN9" target="_blank" rel="noopener noreferrer">Live Dashboard</a>
+                <a class="btn secondary" href="https://github.com/AdamKhemiri/Sales-Analysis-pbi" target="_blank" rel="noopener noreferrer">GitHub Repo</a>
+              </div>
             </div>
           </article>
 
-          <article class="proj card" data-type="data">
-            <div class="thumb">
-              <img
-                src="img/maven-airline.png"
-                alt="Maven Airline loyalty analytics Power BI dashboard preview"
-                loading="lazy"
-              />
+          <article class="project-card card" data-type="bi">
+            <div class="project-media">
+              <img src="img/maven-airline.png" alt="Maven Airline loyalty program Power BI dashboard preview" loading="lazy" decoding="async" />
             </div>
 
-            <h3>Maven Airline – Loyalty Program Analysis</h3>
+            <div class="project-body">
+              <div class="project-kicker">
+                <span class="status featured">Featured BI Project</span>
+                <span class="status">Customer Analytics</span>
+              </div>
 
-            <p>
-              Interactive Power BI reporting project focused on loyalty activity, customer value,
-              and retention trends. Built with reusable measures, app-style navigation, and detail
-              views that turn business questions into clear reporting pages.
-            </p>
+              <h3>Maven Airline — Loyalty Program Analysis</h3>
 
-            <div class="pillbar" aria-label="Skills used">
-              <span class="pill">Power BI</span>
-              <span class="pill">CLV</span>
-              <span class="pill">Retention analysis</span>
-              <span class="pill">Interactive reporting</span>
-            </div>
+              <p>
+                Interactive Power BI analysis of loyalty activity, customer value, retention patterns,
+                and program performance for business decision support.
+              </p>
 
-            <div class="proj-actions">
-              <a
-                class="btn primary"
-                href="https://app.powerbi.com/view?r=eyJrIjoiMmVlM2ZlNTctYjU4MS00OTAxLTg4MmUtYWNkNjg1Y2Q3MGYzIiwidCI6ImIyZDQ1OTA3LTUwOWItNDQ5Ni05YmQzLTVhNjBjN2YwZjM4MCIsImMiOjN9"
-                target="_blank"
-                rel="noopener"
-              >
-                Live Dashboard
-              </a>
-              <a
-                class="btn secondary"
-                href="https://github.com/AdamKhemiri/Maven-Airline-Analysis-pbi"
-                target="_blank"
-                rel="noopener"
-              >
-                GitHub Repo
-              </a>
+              <ul class="project-points">
+                <li>Built a report structure that turns customer and loyalty questions into clear pages and views.</li>
+                <li>Applied reusable DAX measures for customer value, segmentation, activity, and retention-oriented metrics.</li>
+                <li>Focused on usability through app-style navigation, clean visuals, and business-friendly explanations.</li>
+              </ul>
+
+              <div class="pillbar" aria-label="Skills used in Maven Airline project">
+                <span class="pill">Power BI</span>
+                <span class="pill">DAX measures</span>
+                <span class="pill">Retention analysis</span>
+                <span class="pill">Customer value</span>
+                <span class="pill">Interactive reporting</span>
+              </div>
+
+              <div class="project-actions">
+                <a class="btn primary" href="https://app.powerbi.com/view?r=eyJrIjoiMmVlM2ZlNTctYjU4MS00OTAxLTg4MmUtYWNkNjg1Y2Q3MGYzIiwidCI6ImIyZDQ1OTA3LTUwOWItNDQ5Ni05YmQzLTVhNjBjN2YwZjM4MCIsImMiOjN9" target="_blank" rel="noopener noreferrer">Live Dashboard</a>
+                <a class="btn secondary" href="https://github.com/AdamKhemiri/Maven-Airline-Analysis-pbi" target="_blank" rel="noopener noreferrer">GitHub Repo</a>
+              </div>
             </div>
           </article>
 
-          <article class="proj card" data-type="it" hidden>
-            <div class="thumb">
-              <img
-                src="img/it-support-placeholder.png"
-                alt="IT Support portfolio placeholder graphic"
-                loading="lazy"
-                onerror="this.closest('.thumb').innerHTML='<div style=&quot;height:100%;display:grid;place-items:center;padding:24px;text-align:center;color:#D6E0F0;background:linear-gradient(180deg, rgba(79,140,255,.08), rgba(0,0,0,0)), #0A1222;&quot;><div><strong style=&quot;display:block;font-size:18px;margin-bottom:8px;&quot;>IT Support Portfolio</strong><span style=&quot;color:#94A3B8;font-size:14px;line-height:1.6;&quot;>Runbooks, ticket write-ups, and Entra ID lab evidence (redacted)</span></div></div>';"
-              />
+          <article class="project-card card" data-type="support" hidden>
+            <div class="project-media">
+              <div class="project-placeholder" role="img" aria-label="Supporting IT documentation project placeholder">
+                <div>
+                  <strong>Supporting IT Portfolio</strong>
+                  <span>Redacted runbooks • documentation • lab work</span>
+                </div>
+              </div>
             </div>
 
-            <h3>IT Support Portfolio – Runbooks, Tickets, and Entra ID Lab Work</h3>
+            <div class="project-body">
+              <div class="project-kicker">
+                <span class="status supporting">Supporting Evidence</span>
+                <span class="status">Secondary Portfolio Item</span>
+              </div>
 
-            <p>
-              Documentation-focused support portfolio that includes runbooks, ticket write-ups,
-              and redacted Entra ID lab evidence. Included here as supporting proof of troubleshooting
-              structure, communication quality, and operational discipline.
-            </p>
+              <h3>IT Support Documentation — Runbooks &amp; Lab Evidence</h3>
 
-            <div class="pillbar" aria-label="Skills used">
-              <span class="pill">Runbooks</span>
-              <span class="pill">Ticket documentation</span>
-              <span class="pill">Windows 10/11</span>
-              <span class="pill">Entra ID basics</span>
-            </div>
+              <p>
+                Supporting evidence of structured troubleshooting, documentation, and business-facing communication.
+                This section is secondary to the reporting and BI projects.
+              </p>
 
-            <div class="proj-actions">
-              <a
-                class="btn primary"
-                href="https://github.com/AdamKhemiri/it-support-helpdesk-portfolio"
-                target="_blank"
-                rel="noopener"
-              >
-                View IT Portfolio
-              </a>
-              <a
-                class="btn secondary"
-                href="assets/Adam-Khemiri_Resume-IT-Support.pdf"
-                target="_blank"
-                rel="noopener"
-              >
-                IT Resume
-              </a>
+              <ul class="project-points">
+                <li>Shows documentation habits that transfer into reporting requirements and dashboard handoff notes.</li>
+                <li>Uses redacted or lab-based examples only; no client, patient, company, ticket, call, or internal data should be published.</li>
+                <li>Best used for IT/data hybrid roles, application support analyst roles, or reporting roles connected to business systems.</li>
+              </ul>
+
+              <div class="pillbar" aria-label="Supporting IT skills">
+                <span class="pill">Documentation</span>
+                <span class="pill">Troubleshooting</span>
+                <span class="pill">Microsoft 365</span>
+                <span class="pill">Active Directory</span>
+                <span class="pill">Ticketing</span>
+              </div>
+
+              <div class="project-actions">
+                <a class="btn secondary" href="https://github.com/AdamKhemiri/it-support-helpdesk-portfolio" target="_blank" rel="noopener noreferrer">View Supporting IT Repo</a>
+              </div>
             </div>
           </article>
         </div>
       </section>
 
-      <section id="supporting-experience" aria-label="Supporting IT experience">
+      <section id="foundation" aria-labelledby="foundation-title">
         <div class="section-header">
           <div>
-            <h2 class="section-title">Supporting IT Experience</h2>
+            <p class="eyebrow">Technical Foundation</p>
+            <h2 id="foundation-title" class="section-title">Skills positioned for reporting, BI, and IT/data hybrid roles</h2>
             <p class="section-copy">
-              My IT Support background is included as supporting evidence of structured troubleshooting,
-              documentation quality, stakeholder communication, and operational discipline.
+              Focused keyword coverage for recruiter search while staying realistic about current experience level.
             </p>
           </div>
         </div>
 
-        <div class="support-grid">
-          <article class="support-card card">
-            <div>
-              <p class="eyebrow" style="margin-bottom:10px;">Supporting Portfolio</p>
-              <h3 style="margin:0 0 12px; font-size:1.3rem; line-height:1.2;">
-                IT Support Portfolio – Runbooks, Tickets, and Entra ID Lab Work
-              </h3>
-
-              <p style="margin:0; color:var(--muted);">
-                This section supports my transition into Reporting / BI by showing practical experience
-                in documentation, troubleshooting, issue structure, and clear communication. It includes
-                runbooks, ticket-style write-ups, and redacted Entra ID lab evidence focused on common
-                support workflows.
-              </p>
-
-              <div class="pillbar" aria-label="Supporting skills" style="margin-top:16px;">
-                <span class="pill">Windows troubleshooting</span>
-                <span class="pill">Runbooks</span>
-                <span class="pill">Ticket quality</span>
-                <span class="pill">Entra ID lab work</span>
-              </div>
-
-              <div class="proj-actions" style="margin-top:18px;">
-                <a
-                  class="btn secondary"
-                  href="https://github.com/AdamKhemiri/it-support-helpdesk-portfolio"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  View IT Support Portfolio
-                </a>
-                <a
-                  class="btn secondary"
-                  href="assets/Adam-Khemiri_Resume-IT-Support.pdf"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  View IT Resume
-                </a>
-              </div>
+        <div class="foundation-grid">
+          <article class="mini-card">
+            <h3>Reporting &amp; BI</h3>
+            <p>Dashboard design, KPI reporting, business-facing analysis, report navigation, and visual storytelling.</p>
+            <div class="pillbar">
+              <span class="pill">Power BI</span>
+              <span class="pill">DAX</span>
+              <span class="pill">KPI design</span>
+              <span class="pill">Dashboards</span>
+              <span class="pill">Data storytelling</span>
             </div>
+          </article>
 
-            <aside class="support-meta" aria-label="Supporting experience summary">
-              <h3>Why it stays on the site</h3>
-              <p>
-                It is not the main focus of the homepage, but it adds credibility to how I approach
-                reporting work.
-              </p>
+          <article class="mini-card">
+            <h3>Data Modeling &amp; SQL</h3>
+            <p>Data preparation, SQL querying, and model structure for reporting projects, with continued SQL/T-SQL practice.</p>
+            <div class="pillbar">
+              <span class="pill">SQL</span>
+              <span class="pill">T-SQL practice</span>
+              <span class="pill">Power Query</span>
+              <span class="pill">ETL/ELT concepts </span>  
+              <span class="pill">Star schema</span>
+           
+            </div>
+          </article>
 
-              <ul class="list-tight">
-                <li>Structured problem-solving</li>
-                <li>Clear written documentation</li>
-                <li>Business-facing communication</li>
-                <li>Operational discipline</li>
-              </ul>
-            </aside>
+          <article class="mini-card">
+            <h3>Business Systems Background</h3>
+            <p>Practical systems experience that helps with requirements gathering, troubleshooting, data quality questions, and user support.</p>
+            <div class="pillbar">
+              <span class="pill">Microsoft 365</span>
+              <span class="pill">Active Directory</span>
+              <span class="pill">Ticketing systems</span>
+              <span class="pill">Remote support</span>
+              <span class="pill">Business apps</span>
+            </div>
+          </article>
+
+          <article class="mini-card">
+            <h3>Documentation &amp; Communication</h3>
+            <p>Clear documentation, stakeholder communication, troubleshooting notes, dashboard explanations, and multilingual communication.</p>
+            <div class="pillbar">
+              <span class="pill">Documentation</span>
+              <span class="pill">Requirements notes</span>
+              <span class="pill">Excel</span>
+              <span class="pill">English</span>
+              <span class="pill">French</span>
+              <span class="pill">Arabic</span>
+            </div>
           </article>
         </div>
       </section>
 
-      <section id="contact" aria-label="Contact and opportunities">
+      <section id="certifications" aria-labelledby="certifications-title">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Credentials</p>
+            <h2 id="certifications-title" class="section-title">Certifications, training, and education</h2>
+            <p class="section-copy">
+              Kept concise so the page reads like a portfolio, not a certificate wall.
+            </p>
+          </div>
+        </div>
+
+        <div class="cert-grid">
+          <article class="mini-card">
+            <h3>Microsoft PL-300</h3>
+            <p>Power BI Data Analyst certification supporting the reporting and BI direction.</p>
+            <ul class="mini-list">
+              <li>Power BI</li>
+              <li>Data modeling</li>
+              <li>DAX and reporting</li>
+            </ul>
+          </article>
+
+          <article class="mini-card">
+            <h3>Power BI Data Analyst Training</h3>
+            <p>Structured training focused on dashboard development, reporting workflows, and business analysis.</p>
+            <ul class="mini-list">
+              <li>Power Query</li>
+              <li>Report design</li>
+              <li>Modeling basics</li>
+            </ul>
+          </article>
+
+          <article class="mini-card">
+            <h3>Advanced DAX</h3>
+            <p>Additional DAX training for measures, filter context, time intelligence, and reusable calculations.</p>
+            <ul class="mini-list">
+              <li>Measures</li>
+              <li>Filter context</li>
+              <li>Time intelligence</li>
+            </ul>
+          </article>
+
+          <article class="mini-card">
+            <h3>SQL for Data Analysis</h3>
+            <p>SQL and T-SQL training focused on querying, cleaning, aggregating, and preparing data for reporting projects.</p>
+            <ul class="mini-list">
+              <li>Joins and filters</li>
+              <li>Aggregations</li>
+              <li>Reporting queries</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="supporting-experience" aria-labelledby="support-title">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Supporting Experience</p>
+            <h2 id="support-title" class="section-title">IT support background used as a reporting advantage</h2>
+            <p class="section-copy">
+              Positioned as supporting context for business systems, application support, operations reporting,
+              and IT/data hybrid roles.
+            </p>
+          </div>
+        </div>
+
+        <article class="support-card card">
+          <div class="support-layout">
+            <div>
+              <h3>Business systems, troubleshooting, and documentation</h3>
+              <p class="section-copy">
+                My IT support experience helps me understand the operational side of reporting: users ask unclear questions,
+                systems produce messy data, documentation matters, and dashboards need to be understandable by non-technical stakeholders.
+                That background is relevant for Reporting Analyst, Operations/Data Analyst, Application Support Analyst,
+                and IT/Data hybrid opportunities.
+              </p>
+
+              <div class="pillbar" style="margin-top:16px;">
+                <span class="pill">Microsoft 365</span>
+                <span class="pill">Active Directory</span>
+                <span class="pill">Endpoint tools</span>
+                <span class="pill">Ticketing</span>
+                <span class="pill">Remote support</span>
+                <span class="pill">Business applications</span>
+                <span class="pill">Client communication</span>
+              </div>
+            </div>
+
+            <aside class="support-panel" aria-label="Portfolio safety rules">
+              <h3>Portfolio safety rules</h3>
+              <p>Only redacted, public, academic, or simulated examples belong in public portfolio work.</p>
+              <ul class="mini-list">
+                <li>No client names</li>
+                <li>No patient, company, ticket, or call data</li>
+                <li>No employer internal problems</li>
+                <li>No private screenshots or system details</li>
+                <li>Future operations projects must use simulated data only</li>
+              </ul>
+            </aside>
+          </div>
+        </article>
+      </section>
+
+      <section id="contact" aria-labelledby="contact-title">
         <div class="contact-card card">
-          <p class="eyebrow" style="margin-bottom:6px;">Open to Opportunities</p>
-          <h2 class="section-title" style="margin-bottom:0;">Open to Reporting / Power BI Opportunities</h2>
+          <p class="eyebrow">Contact</p>
+          <h2 id="contact-title" class="section-title">Open to reporting, BI, data analyst, and IT/data hybrid conversations</h2>
           <p>
-            Open to Reporting Analyst, Power BI Analyst, Junior BI Analyst, and reporting-focused
-            operations roles. Happy to walk through a dashboard, repo, or project structure live.
+            Open to conversations for Reporting Analyst, Power BI Analyst, Data Analyst, Business Intelligence Analyst,
+            Business Data Analyst, Operations/Data Analyst, Application Support Analyst, and related roles where reporting,
+            business systems, documentation, and stakeholder support matter.
           </p>
 
           <div class="contact-actions">
-            <a class="btn primary" href="mailto:adamkhemiripro@gmail.com">Email</a>
-            <a
-              class="btn secondary"
-              href="assets/Adam-Khemiri_Resume-Data-Analyst.pdf"
-              target="_blank"
-              rel="noopener"
-            >
-              Reporting Resume
-            </a>
-            <a
-              class="btn secondary"
-              href="assets/Adam-Khemiri_Resume-IT-Support.pdf"
-              target="_blank"
-              rel="noopener"
-            >
-              IT Resume
-            </a>
-            <a
-              class="btn secondary"
-              href="https://www.linkedin.com/in/adam-khemiri/"
-              target="_blank"
-              rel="noopener"
-            >
-              LinkedIn
-            </a>
-            <a
-              class="btn secondary"
-              href="https://github.com/AdamKhemiri"
-              target="_blank"
-              rel="noopener"
-            >
-              GitHub
-            </a>
+            <a class="btn primary" href="mailto:adamkhemiripro@gmail.com">Email Adam</a>
+            <a class="btn secondary" href="assets/Adam-Khemiri_Resume-Data-Analyst.pdf" target="_blank" rel="noopener noreferrer">Reporting Resume</a>
+            <a class="btn secondary" href="https://www.linkedin.com/in/adam-khemiri/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a class="btn secondary" href="https://github.com/AdamKhemiri" target="_blank" rel="noopener noreferrer">GitHub</a>
           </div>
         </div>
       </section>
     </main>
 
     <footer>
-      © <span id="year"></span> Adam Khemiri • Built with GitHub Pages
+      © <span id="year"></span> Adam Khemiri • Power BI, SQL &amp; Reporting Portfolio • Built with GitHub Pages
     </footer>
   </div>
 
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+    const yearElement = document.getElementById("year");
+    if (yearElement) {
+      yearElement.textContent = new Date().getFullYear();
+    }
 
     const filterButtons = document.querySelectorAll("[data-filter]");
     const projectCards = document.querySelectorAll("[data-type]");
@@ -921,7 +1098,7 @@
         const isActive = button.dataset.filter === filterValue;
         button.classList.toggle("primary", isActive);
         button.classList.toggle("secondary", !isActive);
-        button.setAttribute("aria-pressed", isActive ? "true" : "false");
+        button.setAttribute("aria-pressed", String(isActive));
       });
 
       projectCards.forEach((card) => {
@@ -937,7 +1114,7 @@
       });
     });
 
-    applyFilter("data");
+    applyFilter("bi");
   </script>
 </body>
 </html>
