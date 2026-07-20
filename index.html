@@ -4,17 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Adam Khemiri • IT, Reporting & Business Intelligence Portfolio</title>
+  <title>Adam Khemiri • Data, Reporting &amp; BI Portfolio</title>
   <meta
     name="description"
-    content="Adam Khemiri — IT, reporting, and business intelligence portfolio featuring Power BI dashboards, an AdventureWorks2022 SQL practice collection, data modeling, business systems, and technical documentation."
+    content="Adam Khemiri — data, reporting, and business intelligence portfolio featuring two live Power BI dashboards, a documented 32-file AdventureWorks2022 T-SQL training portfolio, data modeling, and business-systems experience."
   />
   <meta name="author" content="Adam Khemiri" />
 
-  <meta property="og:title" content="Adam Khemiri • IT, Reporting & Business Intelligence Portfolio" />
+  <meta property="og:title" content="Adam Khemiri • Data, Reporting &amp; BI Portfolio" />
   <meta
     property="og:description"
-    content="Professional portfolio documenting continued development across IT support, business systems, Power BI, AdventureWorks2022 SQL practice, reporting, and business intelligence."
+    content="Professional portfolio featuring two Power BI reporting projects, 32 documented AdventureWorks2022 T-SQL training exercises, business-systems experience, and technical communication."
   />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://adamkhemiri.github.io/" />
@@ -386,12 +386,6 @@
       font-size:.98rem;
     }
 
-    .filterbar{
-      display:flex;
-      flex-wrap:wrap;
-      gap:9px;
-    }
-
     .projects-grid{
       display:grid;
       grid-template-columns:1fr;
@@ -446,6 +440,70 @@
       font-size:13px;
       line-height:1.5;
     }
+
+
+    .sql-feature{
+      grid-column:1 / -1;
+    }
+
+    .sql-feature .project-media{
+      aspect-ratio:auto;
+      min-height:260px;
+      border-bottom:1px solid var(--stroke);
+    }
+
+    .sql-visual{
+      display:grid;
+      grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);
+      gap:24px;
+      align-items:center;
+      height:100%;
+      min-height:260px;
+      padding:28px;
+      background:
+        radial-gradient(540px 260px at 8% 10%, rgba(79,140,255,.18), transparent 58%),
+        linear-gradient(135deg, rgba(79,140,255,.10), rgba(20,184,166,.06)),
+        #0A1222;
+    }
+
+    .sql-visual-copy strong{
+      display:block;
+      margin-bottom:8px;
+      color:#F4F7FB;
+      font-size:clamp(1.35rem, 2.3vw, 2rem);
+      line-height:1.15;
+      letter-spacing:-.025em;
+    }
+
+    .sql-visual-copy span{
+      display:block;
+      max-width:500px;
+      color:var(--muted);
+      font-size:.94rem;
+      line-height:1.6;
+    }
+
+    .sql-code{
+      margin:0;
+      padding:18px;
+      max-width:100%;
+      overflow-x:auto;
+      border:1px solid var(--stroke);
+      border-radius:13px;
+      background:rgba(5,10,20,.86);
+      color:#DDE8F8;
+      font-family:"SFMono-Regular", Consolas, "Liberation Mono", monospace;
+      font-size:12.5px;
+      line-height:1.65;
+      white-space:pre;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.03);
+      -webkit-overflow-scrolling:touch;
+    }
+
+    .sql-keyword{color:#8AB4FF}
+    .sql-function{color:#6EE7D8}
+    .sql-string{color:#FCD38D}
+    .sql-comment{color:#7F8EA5}
 
     .project-body{
       display:flex;
@@ -523,6 +581,14 @@
     }
 
     .project-actions{margin-top:auto;padding-top:4px}
+
+    .support-actions{margin-top:16px}
+
+    .support-note{
+      margin:14px 0 0;
+      color:var(--muted-2);
+      font-size:13px;
+    }
 
     .foundation-grid,
     .cert-grid{
@@ -636,8 +702,13 @@
       .hero h1{letter-spacing:-.04em}
       .snapshot{padding:16px}
       .section-header{align-items:flex-start}
+      .sql-visual{
+        grid-template-columns:1fr;
+        min-height:auto;
+        padding:22px;
+      }
+      .sql-code{font-size:11.5px}
       .btn{width:100%}
-      .filterbar .btn,
       .project-actions .btn,
       .contact-actions .btn{width:auto}
     }
@@ -667,38 +738,39 @@
       <div class="nav-links">
         <a href="#projects">Projects</a>
         <a href="#foundation">Skills</a>
-        <a href="#certifications">Certifications</a>
+        <a href="#supporting-experience">Experience</a>
+        <a href="#certifications">Credentials</a>
         <a href="#contact">Contact</a>
       </div>
     </nav>
 
     <header id="top" class="hero card" role="banner">
       <div>
-        <p class="eyebrow">IT, Reporting &amp; Business Intelligence Portfolio</p>
+        <p class="eyebrow">Data, Reporting &amp; Business Intelligence Portfolio</p>
         <p class="profile-name">Adam Khemiri</p>
 
-        <h1>IT, Reporting &amp; Business Intelligence Portfolio.</h1>
+        <h1>Turning business questions, systems, and data into clear reporting.</h1>
 
         <p class="hero-subtitle">
-          A professional portfolio documenting continued development across IT support, business systems,
-          Power BI, SQL, data modeling, KPI reporting, and technical documentation.
+          Power BI dashboards, documented SQL practice, data modeling, and hands-on business-systems
+          experience brought together in one focused portfolio.
         </p>
 
         <p class="hero-copy">
-          I&apos;m an IT support professional with a background in Management Information Systems and a growing
-          specialization in reporting, Power BI, SQL, and business intelligence. This portfolio documents projects,
-          technical training, and practical work that strengthen my ability to understand business systems, analyze
-          operational information, build clear reports, and communicate findings to technical and non-technical stakeholders.
+          I&apos;m an IT Support Technician with a bachelor&apos;s degree in Management Information Systems and
+          focused development in Power BI, SQL, DAX, and reporting. I combine business-systems knowledge,
+          structured troubleshooting, and clear documentation with hands-on analytics projects to build
+          reports that are understandable, useful, and grounded in business context.
         </p>
 
         <ul class="target-list" aria-label="Core capabilities">
-          <li>IT Support</li>
-          <li>Business Systems</li>
           <li>Power BI</li>
           <li>SQL</li>
           <li>DAX</li>
-          <li>Reporting</li>
           <li>Data Modeling</li>
+          <li>KPI Reporting</li>
+          <li>Business Systems</li>
+          <li>IT Support</li>
           <li>Documentation</li>
         </ul>
 
@@ -714,28 +786,23 @@
 
         <div class="snapshot-grid">
           <div class="snapshot-item">
-            <strong>Current work</strong>
-            <span>IT support, business systems, troubleshooting, user support, and technical documentation.</span>
+            <strong>Current role</strong>
+            <span>IT Support Technician in an MSP and business-systems environment.</span>
           </div>
 
           <div class="snapshot-item">
-            <strong>Development focus</strong>
-            <span>Power BI, SQL, DAX, KPI reporting, data modeling, and business intelligence projects.</span>
+            <strong>Portfolio evidence</strong>
+            <span>Two live Power BI dashboards with GitHub repositories and 32 documented T-SQL training exercises.</span>
           </div>
 
           <div class="snapshot-item">
-            <strong>Education</strong>
-            <span>Bachelor&apos;s degree in Management Information Systems with a foundation in technology and business processes.</span>
+            <strong>Education &amp; credentials</strong>
+            <span>Bachelor&apos;s degree in Management Information Systems, Microsoft PL-300, Advanced DAX, and SQL training.</span>
           </div>
 
           <div class="snapshot-item">
-            <strong>Credentials</strong>
-            <span>Microsoft PL-300 certified with additional Power BI, Advanced DAX, and SQL for Data Analysis training.</span>
-          </div>
-
-          <div class="snapshot-item">
-            <strong>Communication</strong>
-            <span>Comfortable explaining technical and reporting concepts to non-technical users in English, French, and Arabic.</span>
+            <strong>Supporting strengths</strong>
+            <span>Business applications, Microsoft 365, Active Directory, troubleshooting, documentation, and user communication.</span>
           </div>
         </div>
       </aside>
@@ -746,22 +813,16 @@
         <div class="section-header">
           <div>
             <p class="eyebrow">Featured Work</p>
-            <h2 id="projects-title" class="section-title">Featured Reporting &amp; BI Projects</h2>
+            <h2 id="projects-title" class="section-title">Selected Reporting, BI &amp; SQL Work</h2>
             <p class="section-copy">
-              Selected projects documenting continued development in Power BI dashboards, KPI reporting,
-              DAX, SQL and T-SQL analysis, clean documentation, and business-facing presentation.
+              Two Power BI case studies and a documented SQL training portfolio demonstrating dashboard design,
+              DAX, data modeling, T-SQL, documentation, and business-facing presentation.
             </p>
-          </div>
-
-          <div class="filterbar" role="toolbar" aria-label="Project filter">
-            <button class="btn primary small" type="button" data-filter="bi" aria-pressed="true">BI Projects</button>
-            <button class="btn secondary small" type="button" data-filter="all" aria-pressed="false">All</button>
-            <button class="btn secondary small" type="button" data-filter="support" aria-pressed="false">Supporting IT</button>
           </div>
         </div>
 
         <div class="projects-grid">
-          <article class="project-card card" data-type="bi">
+          <article class="project-card card">
             <div class="project-media">
               <img src="img/Sales-analysis.png" alt="Sales Analysis Power BI dashboard preview" loading="lazy" decoding="async" />
             </div>
@@ -800,7 +861,7 @@
             </div>
           </article>
 
-          <article class="project-card card" data-type="bi">
+          <article class="project-card card">
             <div class="project-media">
               <img src="img/maven-airline.png" alt="Maven Airline loyalty program Power BI dashboard preview" loading="lazy" decoding="async" />
             </div>
@@ -839,91 +900,62 @@
             </div>
           </article>
 
-
-          <article class="project-card card" data-type="bi">
+          <article class="project-card card sql-feature">
             <div class="project-media">
-              <div class="project-placeholder" role="img" aria-label="AdventureWorks SQL practice project">
-                <div>
-                  <strong>AdventureWorks SQL Practice</strong>
-                  <span>32 documented T-SQL exercises • SQL Server • AdventureWorks2022</span>
+              <div class="sql-visual">
+                <div class="sql-visual-copy">
+                  <strong>AdventureWorks2022 SQL Query Portfolio</strong>
+                  <span>
+                    32 documented T-SQL exercises completed through structured training with Microsoft&apos;s
+                    AdventureWorks2022 sample database.
+                  </span>
                 </div>
+
+                <pre class="sql-code" aria-label="Sample T-SQL training exercise"><span class="sql-comment">-- Exercise: summarize products by sales order</span>
+<span class="sql-keyword">SELECT</span>
+    A.[SalesOrderID],
+    <span class="sql-function">SUM</span>(A.[LineTotal]) <span class="sql-keyword">AS</span> [Line Total Sum],
+    <span class="sql-function">STRING_AGG</span>(B.[Name], <span class="sql-string">', '</span>)
+        <span class="sql-keyword">WITHIN GROUP</span> (<span class="sql-keyword">ORDER BY</span> B.[Name]) <span class="sql-keyword">AS</span> [Product Names]
+<span class="sql-keyword">FROM</span> [AdventureWorks2022].[Sales].[SalesOrderDetail] <span class="sql-keyword">AS</span> A
+<span class="sql-keyword">INNER JOIN</span> [AdventureWorks2022].[Production].[Product] <span class="sql-keyword">AS</span> B
+    <span class="sql-keyword">ON</span> A.[ProductID] = B.[ProductID]
+<span class="sql-keyword">GROUP BY</span> A.[SalesOrderID]
+<span class="sql-keyword">HAVING</span> <span class="sql-function">SUM</span>(A.[LineTotal]) &gt; 5000;</pre>
               </div>
             </div>
 
             <div class="project-body">
               <div class="project-kicker">
                 <span class="status featured">SQL Portfolio</span>
-                <span class="status">AdventureWorks2022</span>
+                <span class="status">32 Documented Exercises</span>
               </div>
 
-              <h3>AdventureWorks SQL Practice — 32 T-SQL Exercises</h3>
+              <h3>AdventureWorks2022 SQL Query Portfolio — 32 Documented Exercises</h3>
 
               <p>
-                A structured SQL Server practice collection built with Microsoft&apos;s AdventureWorks2022
-                sample database, documenting the progression from foundational queries to multi-table
-                joins and grouped analysis.
+                A documented SQL Server practice portfolio built through structured training with Microsoft&apos;s
+                AdventureWorks2022 sample database. The files progress from foundational querying to joins,
+                grouped calculations, conditional logic, and multi-table exercises.
               </p>
 
               <ul class="project-points">
-                <li>Organized 32 numbered and documented SQL files covering selection, filtering, aliases, derived columns, text and date functions, NULL handling, and CASE expressions.</li>
-                <li>Applied INNER and OUTER JOINs, UNION, aggregate functions, GROUP BY, HAVING, and STRING_AGG to answer progressively more complex data questions.</li>
-                <li>Standardized every exercise against AdventureWorks2022 with readable formatting, descriptive aliases, and concise explanations of the query logic.</li>
+                <li>Completed and organized 32 numbered SQL files covering selection, filtering, aliases, derived columns, text and date functions, NULL handling, and CASE expressions.</li>
+                <li>Practiced INNER and OUTER JOINs, UNION, aggregate functions, GROUP BY, HAVING, and STRING_AGG through progressively more complex exercises.</li>
+                <li>Standardized each file with readable formatting, descriptive aliases, concise documentation, and AdventureWorks2022-compatible references.</li>
               </ul>
 
-              <div class="pillbar" aria-label="Skills used in the AdventureWorks SQL practice project">
+              <div class="pillbar" aria-label="Skills used in the AdventureWorks SQL query portfolio">
                 <span class="pill">SQL Server</span>
                 <span class="pill">T-SQL</span>
                 <span class="pill">AdventureWorks2022</span>
                 <span class="pill">Joins</span>
                 <span class="pill">Aggregations</span>
-                <span class="pill">Data cleaning</span>
+                <span class="pill">Query documentation</span>
               </div>
 
               <div class="project-actions">
-                <a class="btn primary" href="https://github.com/AdamKhemiri/adamkhemiri.github.io/tree/main/assets/Sql-codes" target="_blank" rel="noopener noreferrer">View SQL Files</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="project-card card" data-type="support" hidden>
-            <div class="project-media">
-              <div class="project-placeholder" role="img" aria-label="Supporting IT documentation project placeholder">
-                <div>
-                  <strong>Supporting IT Portfolio</strong>
-                  <span>Redacted runbooks • documentation • lab work</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="project-body">
-              <div class="project-kicker">
-                <span class="status supporting">Supporting Evidence</span>
-                <span class="status">Secondary Portfolio Item</span>
-              </div>
-
-              <h3>IT Support Documentation — Runbooks &amp; Lab Evidence</h3>
-
-              <p>
-                Supporting evidence of structured troubleshooting, documentation, and business-facing communication
-                developed through practical IT work and lab-based examples.
-              </p>
-
-              <ul class="project-points">
-                <li>Shows documentation habits that transfer into reporting requirements and dashboard handoff notes.</li>
-                <li>Uses redacted or lab-based examples only; no client, patient, company, ticket, call, or internal data should be published.</li>
-                <li>Demonstrates how troubleshooting, systems knowledge, and documentation support reliable reporting and operational analysis.</li>
-              </ul>
-
-              <div class="pillbar" aria-label="Supporting IT skills">
-                <span class="pill">Documentation</span>
-                <span class="pill">Troubleshooting</span>
-                <span class="pill">Microsoft 365</span>
-                <span class="pill">Active Directory</span>
-                <span class="pill">Ticketing</span>
-              </div>
-
-              <div class="project-actions">
-                <a class="btn secondary" href="https://github.com/AdamKhemiri/it-support-helpdesk-portfolio" target="_blank" rel="noopener noreferrer">View Supporting IT Repo</a>
+                <a class="btn primary" href="https://github.com/AdamKhemiri/adamkhemiri.github.io/tree/main/assets/Sql-codes" target="_blank" rel="noopener noreferrer">View 32 SQL Files</a>
               </div>
             </div>
           </article>
@@ -934,9 +966,9 @@
         <div class="section-header">
           <div>
             <p class="eyebrow">Technical Foundation</p>
-            <h2 id="foundation-title" class="section-title">Skills supporting IT, reporting, and business intelligence work</h2>
+            <h2 id="foundation-title" class="section-title">Technical skills supporting reporting, BI &amp; application support</h2>
             <p class="section-copy">
-              Technical capabilities developed through hands-on projects, structured training, and practical systems experience.
+              Capabilities developed through hands-on portfolio projects, structured training, and professional IT support experience.
             </p>
           </div>
         </div>
@@ -956,12 +988,12 @@
 
           <article class="mini-card">
             <h3>Data Modeling &amp; SQL</h3>
-            <p>Data preparation, SQL querying, and model structure for reporting projects, supported by a documented 32-file AdventureWorks2022 T-SQL practice collection.</p>
+            <p>Data preparation, model structure, and SQL querying for reporting, supported by 32 documented AdventureWorks2022 T-SQL training exercises.</p>
             <div class="pillbar">
               <span class="pill">SQL</span>
-              <span class="pill">T-SQL practice</span>
+              <span class="pill">T-SQL</span>
               <span class="pill">Power Query</span>
-              <span class="pill">ETL/ELT concepts </span>  
+              <span class="pill">ETL/ELT concepts</span>  
               <span class="pill">Star schema</span>
            
             </div>
@@ -994,68 +1026,14 @@
         </div>
       </section>
 
-      <section id="certifications" aria-labelledby="certifications-title">
-        <div class="section-header">
-          <div>
-            <p class="eyebrow">Credentials</p>
-            <h2 id="certifications-title" class="section-title">Certifications, training, and education</h2>
-            <p class="section-copy">
-              Kept concise so the page reads like a portfolio, not a certificate wall.
-            </p>
-          </div>
-        </div>
-
-        <div class="cert-grid">
-          <article class="mini-card">
-            <h3>Microsoft PL-300</h3>
-            <p>Microsoft certification validating core skills in preparing, modeling, visualizing, and analyzing data with Power BI.</p>
-            <ul class="mini-list">
-              <li>Power BI</li>
-              <li>Data modeling</li>
-              <li>DAX and reporting</li>
-            </ul>
-          </article>
-
-          <article class="mini-card">
-            <h3>Power BI Data Analyst Training</h3>
-            <p>Structured training focused on dashboard development, reporting workflows, and business analysis.</p>
-            <ul class="mini-list">
-              <li>Power Query</li>
-              <li>Report design</li>
-              <li>Modeling basics</li>
-            </ul>
-          </article>
-
-          <article class="mini-card">
-            <h3>Advanced DAX</h3>
-            <p>Additional DAX training for measures, filter context, time intelligence, and reusable calculations.</p>
-            <ul class="mini-list">
-              <li>Measures</li>
-              <li>Filter context</li>
-              <li>Time intelligence</li>
-            </ul>
-          </article>
-
-          <article class="mini-card">
-            <h3>SQL for Data Analysis</h3>
-            <p>SQL and T-SQL training focused on querying, cleaning, aggregating, and preparing data for reporting projects.</p>
-            <ul class="mini-list">
-              <li>Joins and filters</li>
-              <li>Aggregations</li>
-              <li>Reporting queries</li>
-            </ul>
-          </article>
-        </div>
-      </section>
-
       <section id="supporting-experience" aria-labelledby="support-title">
         <div class="section-header">
           <div>
             <p class="eyebrow">Supporting Experience</p>
-            <h2 id="support-title" class="section-title">IT support foundation for reporting and analytics</h2>
+            <h2 id="support-title" class="section-title">IT support &amp; business-systems experience</h2>
             <p class="section-copy">
-              Practical systems experience that strengthens requirements gathering, data-quality investigation,
-              operational reporting, documentation, and user adoption.
+              Professional experience that strengthens requirements discovery, troubleshooting, documentation,
+              data-quality investigation, application support, and user adoption.
             </p>
           </div>
         </div>
@@ -1063,15 +1041,15 @@
         <article class="support-card card">
           <div class="support-layout">
             <div>
-              <h3>Business systems, troubleshooting, and documentation</h3>
+              <h3>Professional foundation supporting data and application roles</h3>
               <p class="section-copy">
-                My IT support experience provides practical context for reporting and analytics work. Supporting users,
-                troubleshooting business systems, documenting technical issues, and interpreting unclear requests have
-                strengthened skills that also matter in requirements gathering, data-quality investigation, operational
-                reporting, and dashboard adoption.
+                My current IT support work is separate from the portfolio projects above. It provides practical
+                experience supporting users, Microsoft 365, Active Directory, endpoints, and business applications.
+                That background strengthens requirements discovery, structured troubleshooting, documentation,
+                data-quality investigation, and communication with business users.
               </p>
 
-              <div class="pillbar" style="margin-top:16px;">
+              <div class="pillbar support-actions">
                 <span class="pill">Microsoft 365</span>
                 <span class="pill">Active Directory</span>
                 <span class="pill">Endpoint tools</span>
@@ -1080,31 +1058,90 @@
                 <span class="pill">Business applications</span>
                 <span class="pill">Client communication</span>
               </div>
+
+              <p class="support-note">Separate public repository with redacted and lab-based documentation examples.</p>
+
+              <div class="support-actions">
+                <a class="btn secondary small" href="https://github.com/AdamKhemiri/it-support-helpdesk-portfolio" target="_blank" rel="noopener noreferrer">View Supporting IT Repository</a>
+              </div>
             </div>
 
-            <aside class="support-panel" aria-label="Portfolio safety rules">
-              <h3>Portfolio safety rules</h3>
-              <p>Only redacted, public, academic, or simulated examples belong in public portfolio work.</p>
+            <aside class="support-panel" aria-label="Transferable strengths">
+              <h3>Transferable strengths</h3>
+              <p>Transferable strengths relevant to reporting, BI, application support, and hybrid IT-data roles.</p>
               <ul class="mini-list">
-                <li>No client names</li>
-                <li>No patient, company, ticket, or call data</li>
-                <li>No employer internal problems</li>
-                <li>No private screenshots or system details</li>
-                <li>Future operations projects must use simulated data only</li>
+                <li>Requirements gathering</li>
+                <li>Data-quality investigation</li>
+                <li>Operational troubleshooting</li>
+                <li>Technical documentation</li>
+                <li>Business-user communication</li>
               </ul>
             </aside>
           </div>
         </article>
       </section>
 
+      <section id="certifications" aria-labelledby="certifications-title">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Credentials</p>
+            <h2 id="certifications-title" class="section-title">Education, certification &amp; focused training</h2>
+            <p class="section-copy">
+              Relevant academic and technical preparation supporting reporting, BI, SQL, and business-systems work.
+            </p>
+          </div>
+        </div>
+
+        <div class="cert-grid">
+          <article class="mini-card">
+            <h3>Bachelor&apos;s in Management Information Systems</h3>
+            <p>Business and technology education supporting systems analysis, reporting, data work, and process understanding.</p>
+            <ul class="mini-list">
+              <li>Business systems</li>
+              <li>Data and reporting</li>
+              <li>Technology management</li>
+            </ul>
+          </article>
+
+          <article class="mini-card">
+            <h3>Microsoft PL-300</h3>
+            <p>Microsoft certification validating core Power BI skills in preparing, modeling, visualizing, and analyzing data.</p>
+            <ul class="mini-list">
+             <li>Power BI and data modeling</li>
+             <li>DAX and report development</li>
+             <li>Workspace roles, RLS, and incremental refresh</li>
+            </ul>
+          </article>
+
+          <article class="mini-card">
+            <h3>Power BI &amp; Advanced DAX Training</h3>
+            <p>Structured development in report design, Power Query, measures, filter context, and time intelligence.</p>
+            <ul class="mini-list">
+              <li>Report design</li>
+              <li>Power Query</li>
+              <li>Advanced DAX</li>
+            </ul>
+          </article>
+
+          <article class="mini-card">
+            <h3>SQL for Data Analysis</h3>
+            <p>Structured SQL and T-SQL training focused on querying, filtering, joining, aggregating, and documenting results.</p>
+            <ul class="mini-list">
+              <li>Joins and filters</li>
+              <li>Aggregations</li>
+              <li>Query documentation</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
       <section id="contact" aria-labelledby="contact-title">
         <div class="contact-card card">
           <p class="eyebrow">Connect</p>
-          <h2 id="contact-title" class="section-title">Explore the portfolio and professional development journey</h2>
+          <h2 id="contact-title" class="section-title">Review the work and start a conversation</h2>
           <p>
-            This portfolio documents my continued development across IT support, business systems, reporting,
-            and business intelligence. Feel free to explore the project repositories, connect with me on LinkedIn,
-            or contact me regarding the work presented here.
+            Explore the live dashboards and repositories, connect with me on LinkedIn, or reach out to discuss the projects, technical approach, 
+            and continued development of my skills across IT support, reporting, and business intelligence.
           </p>
 
           <div class="contact-actions">
@@ -1117,7 +1154,7 @@
     </main>
 
     <footer>
-      © <span id="year"></span> Adam Khemiri • IT, Reporting &amp; Business Intelligence Portfolio • Built with GitHub Pages
+      © <span id="year"></span> Adam Khemiri • Data, Reporting &amp; BI Portfolio • Built with GitHub Pages
     </footer>
   </div>
 
@@ -1126,32 +1163,6 @@
     if (yearElement) {
       yearElement.textContent = new Date().getFullYear();
     }
-
-    const filterButtons = document.querySelectorAll("[data-filter]");
-    const projectCards = document.querySelectorAll("[data-type]");
-
-    function applyFilter(filterValue) {
-      filterButtons.forEach((button) => {
-        const isActive = button.dataset.filter === filterValue;
-        button.classList.toggle("primary", isActive);
-        button.classList.toggle("secondary", !isActive);
-        button.setAttribute("aria-pressed", String(isActive));
-      });
-
-      projectCards.forEach((card) => {
-        const cardType = card.dataset.type;
-        const shouldShow = filterValue === "all" || filterValue === cardType;
-        card.hidden = !shouldShow;
-      });
-    }
-
-    filterButtons.forEach((button) => {
-      button.addEventListener("click", () => {
-        applyFilter(button.dataset.filter);
-      });
-    });
-
-    applyFilter("bi");
   </script>
 </body>
 </html>
