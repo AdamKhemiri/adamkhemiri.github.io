@@ -12,7 +12,7 @@
   <meta property="og:description" content="Explore my sales and loyalty analyses, professional experience, and interactive Power BI reports.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://adamkhemiri.github.io/">
-  <meta property="og:image" content="https://adamkhemiri.github.io/img/Sales-analysis.png">
+  <meta property="og:image" content="https://adamkhemiri.github.io/img/sales-analysis.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -243,6 +243,7 @@
       border-bottom: 1px solid var(--border);
       background: #080f1c;
     }
+    .project-image a { display:block; height:100%; }
     .project-image img {
       width: 100%;
       height: 100%;
@@ -416,9 +417,9 @@
         <p class="eyebrow">Data &amp; Business Intelligence Portfolio</p>
         <p class="name">Adam Khemiri</p>
 
-        <h1>Sales analysis.<br>Clear findings.<br>Better decisions.</h1>
+        <h1>Data Analyst.<br>Power BI &amp; SQL.</h1>
 
-        <p class="role">Data Analyst | Power BI &amp; SQL</p>
+        <p class="role">Sales analysis, reporting, and business intelligence.</p>
 
         <p class="hero-copy">
           I turn sales and operational data into reports people can use.
@@ -473,53 +474,34 @@
           <h2 id="projects-title">From business questions to findings</h2>
           <p>
             Two portfolio analyses exploring profitability and customer activity.
-            Open the reports to explore the data, or review the supporting models and measures.
+            Read the case studies for findings and recommendations, or explore the interactive reports.
           </p>
         </div>
 
         <div class="grid">
           <article class="project card">
             <div class="project-image">
-              <img src="img/Sales-analysis.png"
-                   alt="Sales Analysis Power BI report preview"
+              <a href="img/sales-analysis.png" target="_blank" rel="noopener noreferrer" aria-label="Open full-size Sales report screenshot"><img src="img/sales-analysis.png"
+                   alt="Sales segment comparison showing Enterprise’s loss alongside four profitable segments"
                    loading="lazy"
-                   decoding="async">
+                   decoding="async"></a>
             </div>
 
             <div class="project-body">
-              <span class="tag">Portfolio project · Sales profitability</span>
+              <span class="tag">Course-based project · Sales profitability</span>
               <h3>Sales Analysis</h3>
               <p class="question">Where are sales failing to translate into profit?</p>
 
-              <div class="finding">
-                <strong>Key findings</strong>
-                <p>
-                  The Enterprise segment recorded approximately $615K in losses
-                  in the analyzed dataset. The United States led net sales,
-                  while France led profit.
-                </p>
-              </div>
+              <div class="finding"><strong>$615K loss despite $19.61M in net sales</strong><p>Enterprise was the only loss-making segment. France earned $785K more profit than the USA despite lower sales.</p></div>
 
-              <p>
-                <strong>Approach:</strong> Built a Power Query workflow and
-                star-schema model, then created DAX measures to compare revenue,
-                discounts, costs, and profitability across products, segments,
-                and countries.
-              </p>
+              <p><strong>My work:</strong> Built the report from a blank Power BI report using course-supplied Excel data and visual assets. Used Power Query, date and manager dimensions, DAX, and drill-through to compare sales and profit.</p>
 
               <p class="small">
                 Dataset period: September 2021–December 2022.
               </p>
 
               <details>
-                <summary>Interpretation &amp; next step</summary>
-                <p>
-                  Sales volume and profitability tell different stories.
-                  My recommended next step is to investigate Enterprise product
-                  margins and discount levels before changing pricing.
-                  The segment total identifies where to investigate; it does
-                  not establish the cause of the loss.
-                </p>
+                <summary>Interpretation &amp; next step</summary><p>Investigate Enterprise’s product mix, prices, discounts, and cost of goods before changing pricing. Profit here means net sales minus cost of goods. The case study includes the supporting comparisons and validation notes.</p>
               </details>
 
               <ul class="tags" aria-label="Sales project tools">
@@ -530,22 +512,22 @@
               </ul>
 
               <div class="actions">
-                <a class="button primary"
+                <a class="button"
                    href="https://app.powerbi.com/view?r=eyJrIjoiY2YyNjkxMWYtMmEzNS00MTUzLWFhZDctNTQ2MmM4MTI1MzE0IiwidCI6ImIyZDQ1OTA3LTUwOWItNDQ5Ni05YmQzLTVhNjBjN2YwZjM4MCIsImMiOjN9"
                    target="_blank" rel="noopener noreferrer">Live Dashboard</a>
-                <a class="button"
+                <a class="button primary"
                    href="https://github.com/AdamKhemiri/Sales-Analysis-pbi"
-                   target="_blank" rel="noopener noreferrer">Project Documentation</a>
+                   target="_blank" rel="noopener noreferrer">Read Case Study</a>
               </div>
             </div>
           </article>
 
           <article class="project card">
             <div class="project-image">
-              <img src="img/maven-airline.png"
+              <a href="img/maven-airline.png" target="_blank" rel="noopener noreferrer" aria-label="Open full-size Airline report screenshot"><img src="img/maven-airline.png"
                    alt="Maven Airline loyalty analysis Power BI report preview"
                    loading="lazy"
-                   decoding="async">
+                   decoding="async"></a>
             </div>
 
             <div class="project-body">
@@ -553,32 +535,16 @@
               <h3>Maven Airline Loyalty Analysis</h3>
               <p class="question">How does flight activity vary by season and loyalty tier?</p>
 
-              <div class="finding">
-                <strong>Key findings</strong>
-                <p>
-                  Flight activity peaked in summer. The Star loyalty tier led
-                  the analyzed tiers in total flights and members.
-                </p>
-              </div>
+              <div class="finding"><strong>27.9% more flights in 2018</strong><p>Flights rose from 223,262 in 2017 to 285,546 in 2018. July was the busiest month in both years, with July activity increasing by 44.2%.</p></div>
 
-              <p>
-                <strong>Approach:</strong> Analyzed membership and flight activity
-                in Power BI, using enrollment and cancellation dates for membership
-                measures and DAX to evaluate customer value and redemption ratios.
-              </p>
+              <p><strong>Approach:</strong> Combined customer flight activity and loyalty history in Power BI, with DAX measures, year and enrollment-type filters, and detailed views by time, location, profile, and tier.</p>
 
               <p class="small">
                 Dataset period: January 2017–December 2018.
               </p>
 
               <details>
-                <summary>Interpretation &amp; next step</summary>
-                <p>
-                  Tier totals describe volume, but a larger membership base can
-                  explain a higher flight total. My recommended next step is to
-                  compare flights per active member across tiers and account for
-                  seasonal demand before recommending a loyalty intervention.
-                </p>
+                <summary>Interpretation &amp; next step</summary><p>Examine the customer groups behind the summer peak to inform seasonal loyalty communications. Growth is calculated from annual totals; it does not establish promotion impact. Tier reconciliation and membership definitions are documented in the case study.</p>
               </details>
 
               <ul class="tags" aria-label="Airline project tools">
@@ -589,12 +555,12 @@
               </ul>
 
               <div class="actions">
-                <a class="button primary"
+                <a class="button"
                    href="https://app.powerbi.com/view?r=eyJrIjoiMmVlM2ZlNTctYjU4MS00OTAxLTg4MmUtYWNkNjg1Y2Q3MGYzIiwidCI6ImIyZDQ1OTA3LTUwOWItNDQ5Ni05YmQzLTVhNjBjN2YwZjM4MCIsImMiOjN9"
                    target="_blank" rel="noopener noreferrer">Live Dashboard</a>
-                <a class="button"
+                <a class="button primary"
                    href="https://github.com/AdamKhemiri/Maven-Airline-Analysis-pbi"
-                   target="_blank" rel="noopener noreferrer">Project Documentation</a>
+                   target="_blank" rel="noopener noreferrer">Read Case Study</a>
               </div>
             </div>
           </article>
@@ -752,12 +718,10 @@
           </article>
 
           <article class="credential card">
-            <p class="eyebrow">Completed training</p>
-            <h3>Power BI, DAX &amp; SQL</h3>
+            <p class="eyebrow">Current learning</p>
+            <h3>Microsoft Fabric · DP-600 preparation</h3>
             <p>
-              Microsoft Power BI Data Analyst Professional Certificate,
-              Advanced DAX, SQL for Data Analysis, and Microsoft Fabric
-              Analytics Engineer training.
+              Developing my Microsoft Fabric skills and preparing for the DP-600 Fabric Analytics Engineer Associate exam. Certification preparation is in progress.
             </p>
           </article>
         </div>
@@ -793,3 +757,4 @@
   </script>
 </body>
 </html>
+
