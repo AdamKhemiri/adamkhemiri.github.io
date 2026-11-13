@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MSP Operations &amp; Profitability | Adam Khemiri</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="case-study.css">
+</head>
+<body>
+  <nav aria-label="Portfolio">
+    <a href="../../index.html#projects">← Portfolio projects</a>
+  </nav>
+  <main>
+<h1>MSP Operations &amp; Profitability</h1>
+<p><strong>Adam Khemiri · Independent data analytics project · Simulated data</strong><br><strong>Microsoft Fabric, T-SQL, Power BI, DAX, Excel</strong></p>
+<p><a href="report/MSP%20Operations%20%26%20Profitability.pdf">Open the three-page Power BI report (PDF)</a></p>
+<p>I used my IT support experience to frame a question for a fictional managed service provider (MSP). When a client account loses money, how much comes from billing errors and how much comes from the cost of delivering support?</p>
+<h2>Findings</h2>
+<ul>
+<li><strong>Billing corrections would improve margin by 1.17 percentage points.</strong> Comparing eligible workstations against billed quantities and signed rates identified <strong>$28,860 in simulated underbilling</strong>. Holding costs fixed, correcting billing would move the 24-month managed-services gross margin from <strong>12.41% to 13.58%</strong>.</li>
+<li><strong>Two loss-making accounts need different actions.</strong> In February 2025, Everywhere Dentistry had 100 eligible workstations and was billed for 80 at $45 each. Correcting the count would close a <strong>$900 billing gap</strong>, leaving a <strong>$2,494 gross loss</strong> after allocating service payroll. Apex Precision Machining was fully billed and still lost <strong>$24,111.74</strong> in gross profit over May–October 2026. The recovery plan prioritizes reviewing Apex&#39;s pricing before its December 3, 2026 notice deadline and correcting Dentistry&#39;s billed count before reviewing its renewal rate.</li>
+<li><strong>Project margins change when all engineering payroll is included.</strong> The February 2025 rollout earned <strong>$3,000 of direct gross profit</strong> on <strong>$10,000 in revenue</strong>. That month, the project department recorded an <strong>$8,440 gross loss</strong> after charging the full engineering payroll. Across 24 months, the company recorded <strong>$329,181.60 in gross profit</strong> and a <strong>$254,318.40 operating loss</strong> after overhead.</li>
+</ul>
+<h2>Power BI report</h2>
+<p>The PDF shows all clients and all 24 reporting months. Tables show the rows visible on each report page at export.</p>
+<ol>
+<li><strong>Service Demand &amp; Quality.</strong> Ticket trends, service-level agreement (SLA) results, and survey feedback by recorded closing technician. SLA metrics are grouped by the month tickets were opened. The rates use 24/7 elapsed time and include tickets with a recorded first response or resolution, respectively. Survey metrics are grouped by the month tickets were closed.</li>
+<li><strong>Client Contracts &amp; Recovery Plan.</strong> Managed revenue, gross margin, and billing gaps by client and month. The October 31, 2026 renewal snapshot uses May–October 2026 costs to estimate the monthly rate per workstation needed for a 30% gross margin at the same delivery cost and device volume.</li>
+<li><strong>Business Performance.</strong> Company revenue, gross profit, and operating profit, with monthly trends and a comparison of project margin using logged labor and using full engineering payroll.</li>
+</ol>
+<h2>How I built and checked the report</h2>
+<p>The fictional dataset covers November 2024 through October 2026 across <strong>14 CSV files</strong>. It includes scenarios for billing discrepancies, contract pricing, and payroll allocation. Fabric Data Factory pipelines and Dataflow Gen2 brought the data into the Warehouse. T-SQL consolidated two ticket deliveries into <strong>28,600 distinct tickets</strong>, reconciled billing and payroll, and built reporting tables for a Direct Lake Power BI model. DAX measures calculate report totals and margins under the selected filters.</p>
+<ul>
+<li><a href="validation/MSP%20Operating%20Profit%20Reconciliation.xlsx">Excel operating profit reconciliation</a> uses XLOOKUP to match Power BI and Fabric Warehouse results by month. <strong>24 of 24 months match to the cent</strong>, totaling <strong>−$254,318.40</strong> in each source. The workbook opens without a Fabric connection.</li>
+<li><a href="model/semantic-model.png">Power BI model diagram</a>, <a href="model/relationships.html">relationship settings</a>, and <a href="model/dax-measures.html">DAX measures</a> show how the report handles date roles, client filters, and financial calculations.</li>
+<li><a href="data/msp-synthetic-source-data.zip">Synthetic source data</a> contains the 14 CSVs and a data dictionary with the purpose, keys, and columns for each file.</li>
+</ul>
+<h3>Fabric screenshots</h3>
+<p><strong>Contract source pipeline.</strong> Run history shows all three Copy activities succeeded for agreements, device snapshots, and invoice lines.</p>
+<p><img src="implementation/fabric-contract-pipeline-run.png" alt="Successful Fabric pipeline run for agreements, device snapshots, and invoice lines"></p>
+<p><strong>Ticket reporting table.</strong> The Warehouse overview shows 28,600 rows in <code>dbo.FactTicket</code>, with one row per ticket after consolidating the source deliveries.</p>
+<p><img src="implementation/fabric-ticket-fact.png" alt="Fabric Warehouse overview of dbo.FactTicket showing 28,600 rows"></p>
+<h3>Selected Fabric Warehouse SQL</h3>
+<p>Start with the billing query for the main finding. These are examples from the Warehouse build. The table builds rely on existing source tables and intermediate views in Fabric.</p>
+<table>
+<thead>
+<tr>
+<th>SQL example</th>
+<th>What it shows</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="sql/managed_billing_reconciliation.sql">Billing reconciliation</a></td>
+<td>Compares eligible workstations with billed quantities and applies the signed agreement rate.</td>
+</tr>
+<tr>
+<td><a href="sql/managed_contract_profitability.sql">Contract profitability</a></td>
+<td>Allocates remaining service payroll by eligible workstation count and reconciles costs to payroll.</td>
+</tr>
+<tr>
+<td><a href="sql/contract_renewal_pricing.sql">Renewal pricing</a></td>
+<td>Estimates the rate needed for a 30% gross margin and surfaces notice deadlines.</td>
+</tr>
+<tr>
+<td><a href="sql/business_performance.sql">Business performance</a></td>
+<td>Builds monthly company results and project-level direct profit.</td>
+</tr>
+<tr>
+<td><a href="sql/ticket_reporting.sql">Ticket reporting</a></td>
+<td>Builds the reporting model for ticket volume, closures, and SLA measures.</td>
+</tr>
+</tbody></table>
+  </main>
+</body>
+</html>

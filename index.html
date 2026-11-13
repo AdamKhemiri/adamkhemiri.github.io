@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Adam Khemiri | Data Analyst & Power BI Portfolio</title>
-  <meta name="description" content="Adam Khemiri's data analyst portfolio: Power BI, SQL, sales analysis, loyalty analytics, and business reporting.">
+  <meta name="description" content="Adam Khemiri's data analyst portfolio featuring MSP operations, sales profitability, and airline loyalty projects built with Microsoft Fabric, Power BI, and SQL.">
   <meta name="author" content="Adam Khemiri">
 
   <meta property="og:title" content="Adam Khemiri | Data Analyst & Power BI Portfolio">
-  <meta property="og:description" content="Explore my sales and loyalty analyses, professional experience, and interactive Power BI reports.">
+  <meta property="og:description" content="Explore my MSP operations, sales profitability, and airline loyalty case studies and Power BI reports.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://adamkhemiri.github.io/">
   <meta property="og:image" content="https://adamkhemiri.github.io/img/sales-analysis.png">
@@ -238,6 +238,7 @@
       flex-direction: column;
       overflow: hidden;
     }
+    .project-featured { grid-column: 1 / -1; }
     .project-image {
       aspect-ratio: 16 / 9;
       border-bottom: 1px solid var(--border);
@@ -290,6 +291,19 @@
       padding-top: 20px;
     }
     .project-body .tags { margin: 18px 0; }
+    @media (min-width: 900px) {
+      .project-featured {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      }
+      .project-featured .project-image {
+        aspect-ratio: auto;
+        min-height: 280px;
+        border-right: 1px solid var(--border);
+        border-bottom: 0;
+      }
+      .project-featured .project-body { min-width: 0; }
+    }
     .small {
       color: var(--muted);
       font-size: 13px;
@@ -453,7 +467,7 @@
           </div>
           <div>
             <dt>Selected work</dt>
-            <dd>Sales profitability and airline loyalty analysis, with interactive reports and documented measures.</dd>
+            <dd>MSP operations, sales profitability, and airline loyalty analysis, with Power BI reports and documented findings.</dd>
           </div>
           <div>
             <dt>Credentials</dt>
@@ -473,12 +487,55 @@
           <p class="eyebrow">Featured work</p>
           <h2 id="projects-title">From business questions to findings</h2>
           <p>
-            Two portfolio analyses exploring profitability and customer activity.
-            Read the case studies for findings and recommendations, or explore the interactive reports.
+            Three case studies covering service operations, sales profitability, and customer activity.
           </p>
         </div>
 
         <div class="grid">
+          <article class="project project-featured card" id="msp-operations">
+            <div class="project-image">
+              <a href="projects/msp-operations/contract-recovery.png"
+                 target="_blank" rel="noopener noreferrer" aria-label="Open full-size contract recovery report preview">
+                <img src="projects/msp-operations/contract-recovery.png"
+                     alt="Power BI contract recovery report showing a $28,860 billing gap and a 12.41% managed services gross margin"
+                     loading="lazy" decoding="async">
+              </a>
+            </div>
+
+            <div class="project-body">
+              <span class="tag">Independent project · Simulated MSP data</span>
+              <h3>MSP Operations &amp; Profitability</h3>
+              <p class="question">Which managed service provider contracts need a billing correction or a pricing review?</p>
+
+              <div class="finding">
+                <strong>$28,860 in simulated underbilling</strong>
+                <p>At current costs, billing all eligible workstations would raise managed-services gross margin from 12.41% to 13.58%.</p>
+              </div>
+
+              <p>Used Fabric pipelines and T-SQL to consolidate 28,600 service tickets, built a three-page Power BI report, and reconciled 24 months of operating profit in Excel.</p>
+              <p class="small">November 2024–October 2026</p>
+
+              <details>
+                <summary>Contract recommendations</summary>
+                <p>Correct Everywhere Dentistry’s workstation count and review its renewal rate. Review Apex’s pricing before its notice deadline. The account lost $24,111.74 over six months despite being fully billed.</p>
+              </details>
+
+              <ul class="tags" aria-label="MSP project tools">
+                <li class="tag">Microsoft Fabric</li>
+                <li class="tag">T-SQL</li>
+                <li class="tag">Power BI</li>
+                <li class="tag">DAX</li>
+                <li class="tag">Excel</li>
+              </ul>
+
+              <div class="actions">
+                <a class="button" href="projects/msp-operations/report/MSP%20Operations%20%26%20Profitability.pdf"
+                   target="_blank" rel="noopener noreferrer">View Report (PDF)</a>
+                <a class="button primary" href="projects/msp-operations/index.html">Read Case Study</a>
+              </div>
+            </div>
+          </article>
+
           <article class="project card">
             <div class="project-image">
               <a href="img/sales-analysis.png" target="_blank" rel="noopener noreferrer" aria-label="Open full-size Sales report screenshot"><img src="img/sales-analysis.png"

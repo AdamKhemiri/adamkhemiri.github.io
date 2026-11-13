@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Power BI model relationships | Adam Khemiri</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../case-study.css">
+</head>
+<body>
+  <nav aria-label="Portfolio">
+    <a href="../index.html">← MSP case study</a>
+  </nav>
+  <main>
+<h1>Power BI model relationships</h1>
+<p><a href="semantic-model.png">View the semantic model diagram</a></p>
+<p>The Power BI model uses Direct Lake tables from the Fabric Warehouse. Shared date and client dimensions let the report filter facts at different levels of detail.</p>
+<h2>Fact tables</h2>
+<table>
+<thead>
+<tr>
+<th>Table</th>
+<th>One row represents</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>FactTicket</code></td>
+<td>The latest available version of a ticket</td>
+</tr>
+<tr>
+<td><code>FactSurvey</code></td>
+<td>One survey invitation, with a score when the customer responded</td>
+</tr>
+<tr>
+<td><code>FactManagedContractMonth</code></td>
+<td>One client agreement term in one service month</td>
+</tr>
+<tr>
+<td><code>FactContractRenewalSnapshot</code></td>
+<td>One agreement term in effect on October 31, 2026</td>
+</tr>
+<tr>
+<td><code>FactProject</code></td>
+<td>One project</td>
+</tr>
+<tr>
+<td><code>FactBusinessMonth</code></td>
+<td>One company reporting month</td>
+</tr>
+</tbody></table>
+<h2>Relationship settings</h2>
+<p>All relationships below are <strong>one-to-many</strong>, with a <strong>single filter direction</strong> from the dimension to the fact table.</p>
+<table>
+<thead>
+<tr>
+<th>Dimension key (<code>1</code>)</th>
+<th>Fact key (<code>*</code>)</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>DimClient[ClientId]</code></td>
+<td><code>FactTicket[ClientId]</code></td>
+<td>Active</td>
+</tr>
+<tr>
+<td><code>DimClient[ClientId]</code></td>
+<td><code>FactSurvey[ClientId]</code></td>
+<td>Active</td>
+</tr>
+<tr>
+<td><code>DimClient[ClientId]</code></td>
+<td><code>FactManagedContractMonth[ClientId]</code></td>
+<td>Active</td>
+</tr>
+<tr>
+<td><code>DimClient[ClientId]</code></td>
+<td><code>FactContractRenewalSnapshot[ClientId]</code></td>
+<td>Active</td>
+</tr>
+<tr>
+<td><code>DimClient[ClientId]</code></td>
+<td><code>FactProject[ClientId]</code></td>
+<td>Active</td>
+</tr>
+<tr>
+<td><code>DimClosingActor[ClosingActorKey]</code></td>
+<td><code>FactTicket[ClosingActorKey]</code></td>
+<td>Active</td>
+</tr>
+<tr>
+<td><code>DimClosingActor[ClosingActorKey]</code></td>
+<td><code>FactSurvey[ClosingActorKey]</code></td>
+<td>Active</td>
+</tr>
+<tr>
+<td><code>DimDate[CalendarDate]</code></td>
+<td><code>FactTicket[ClosedDate]</code></td>
+<td>Active</td>
+</tr>
+<tr>
+<td><code>DimDate[CalendarDate]</code></td>
+<td><code>FactTicket[CreatedDate]</code></td>
+<td>Inactive. Activated by opened-ticket and SLA measures.</td>
+</tr>
+<tr>
+<td><code>DimDate[CalendarDate]</code></td>
+<td><code>FactSurvey[ClosedDate]</code></td>
+<td>Active</td>
+</tr>
+<tr>
+<td><code>DimDate[CalendarDate]</code></td>
+<td><code>FactManagedContractMonth[MonthStart]</code></td>
+<td>Active</td>
+</tr>
+<tr>
+<td><code>DimDate[CalendarDate]</code></td>
+<td><code>FactProject[MonthStart]</code></td>
+<td>Active</td>
+</tr>
+<tr>
+<td><code>DimDate[CalendarDate]</code></td>
+<td><code>FactBusinessMonth[MonthStart]</code></td>
+<td>Active</td>
+</tr>
+</tbody></table>
+<ul>
+<li>The service page counts ticket closures by the recorded closer and closure month. Ticket opening, SLA, and elapsed resolution measures use the opening month. Survey measures use the ticket closure month.</li>
+<li>The renewal table uses a fixed reporting snapshot and has a client relationship. The monthly company fact reports company-wide results, including shared payroll and overhead, and has a date relationship.</li>
+<li>The report&#39;s <strong>Month</strong> slicers use <code>DimDate[YearMonth]</code>. Trend charts retain the full history through Power BI visual interaction settings.</li>
+</ul>
+  </main>
+</body>
+</html>

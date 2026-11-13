@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Power BI DAX measures | Adam Khemiri</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../case-study.css">
+</head>
+<body>
+  <nav aria-label="Portfolio">
+    <a href="../index.html">← MSP case study</a>
+  </nav>
+  <main>
+<h1>Power BI DAX measures</h1>
+<p>These DAX examples document the report calculations. The Warehouse SQL prepares the source facts, including billing gaps, payroll allocations, and SLA flags. See the <a href="relationships.html">relationship settings</a> for how month and client filters reach those facts.</p>
+<h2>Service Demand &amp; Quality</h2>
+<p>The <code>Tickets Closed</code> example expresses the visual&#39;s sum of the Warehouse <code>IsClosed</code> flag under the active closure-date relationship. <code>USERELATIONSHIP</code> switches the other ticket measures below to the opening date. The SLA flags are <code>1</code> for met and <code>0</code> for missed, with blanks excluded from the average. Resolution hours convert the median recorded minutes to hours.</p>
+<pre><code class="language-dax">Tickets Closed =
+SUM(FactTicket[IsClosed])
+
+Tickets Opened =
+CALCULATE(
+    COUNTROWS(FactTicket),
+    USERELATIONSHIP(DimDate[CalendarDate], FactTicket[CreatedDate])
+)
+
+First Response SLA % =
+CALCULATE(
+    AVERAGE(FactTicket[FirstResponseSlaMet]),
+    USERELATIONSHIP(DimDate[CalendarDate], FactTicket[CreatedDate])
+)
+
+Resolution SLA % =
+CALCULATE(
+    AVERAGE(FactTicket[ResolutionSlaMet]),
+    USERELATIONSHIP(DimDate[CalendarDate], FactTicket[CreatedDate])
+)
+
+Median Resolution Hours =
+DIVIDE(
+    CALCULATE(
+        MEDIAN(FactTicket[ResolutionMinutes]),
+        USERELATIONSHIP(DimDate[CalendarDate], FactTicket[CreatedDate])
+    ),
+    60
+)
+
+Survey Invitations =
+COUNTROWS(FactSurvey)
+
+Survey Responses =
+SUM(FactSurvey[IsResponded])
+
+Average CSAT =
+CALCULATE(
+    AVERAGE(FactSurvey[CsatScore]),
+    FactSurvey[IsResponded] = 1
+)
+
+Survey Response Rate =
+DIVIDE([Survey Responses], [Survey Invitations])
+</code></pre>
+<p>The customer satisfaction card shows the average rating out of five. The technician table applies a visual filter for named closing technicians.</p>
+<h2>Client Contracts &amp; Recovery Plan</h2>
+<p>Margins divide profit by the matching revenue total. The corrected-billing scenario uses the signed rate for all eligible workstations and holds modeled delivery costs fixed.</p>
+<pre><code class="language-dax">Managed Revenue =
+SUM(FactManagedContractMonth[InvoicedRevenue])
+
+Managed Gross Profit =
+SUM(FactManagedContractMonth[ManagedGrossProfit])
+
+Managed Gross Margin % =
+DIVIDE([Managed Gross Profit], [Managed Revenue])
+
+Billing Gap =
+SUM(FactManagedContractMonth[BillingGap])
+
+Gross Profit at Correct Billing =
+SUM(FactManagedContractMonth[ManagedGrossProfitAtCorrectBilling])
+
+Gross Margin at Correct Billing % =
+DIVIDE(
+    [Gross Profit at Correct Billing],
+    SUM(FactManagedContractMonth[ExpectedRevenue])
+)
+</code></pre>
+<h2>Business Performance</h2>
+<p>Company gross profit includes all delivery payroll. Operating profit subtracts overhead in the Warehouse. The project margin comparison uses the same project revenue for both calculations, with logged engineering labor in the direct margin and total engineering payroll in the department margin.</p>
+<pre><code class="language-dax">Company Revenue =
+SUM(FactBusinessMonth[CompanyRevenue])
+
+Company Gross Profit =
+SUM(FactBusinessMonth[CompanyGrossProfit])
+
+Operating Profit =
+SUM(FactBusinessMonth[OperatingProfit])
+
+Direct Project Margin % =
+DIVIDE(
+    SUM(FactBusinessMonth[DirectProjectGrossProfit]),
+    SUM(FactBusinessMonth[ProjectRevenue])
+)
+
+Project Department Margin % =
+DIVIDE(
+    SUM(FactBusinessMonth[ProjectDepartmentGrossProfit]),
+    SUM(FactBusinessMonth[ProjectRevenue])
+)
+</code></pre>
+  </main>
+</body>
+</html>
