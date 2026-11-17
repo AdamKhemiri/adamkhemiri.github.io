@@ -291,18 +291,41 @@
       padding-top: 20px;
     }
     .project-body .tags { margin: 18px 0; }
+    .project-featured .project-image { aspect-ratio: auto; }
+    .project-featured .project-image a {
+      height: auto;
+      text-decoration: none;
+    }
+    .project-featured .project-image a:focus-visible { outline-offset: -4px; }
+    .project-featured .project-image img { height: auto; }
+    .preview-caption {
+      display: block;
+      padding: 10px 18px;
+      border-top: 1px solid var(--border);
+      color: #b9d3ff;
+      background: #0d1728;
+      font-size: 13px;
+      font-weight: 600;
+      text-align: right;
+    }
+    .project-image a:hover .preview-caption { color: #fff; }
+    .project-featured .project-body { gap: 24px; }
+    .project-summary, .project-evidence { width: 100%; min-width: 0; }
+    .project-summary .finding { margin-bottom: 0; }
+    .project-evidence {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      height: 100%;
+    }
+    .project-evidence > p { font-size: 14px; }
     @media (min-width: 900px) {
-      .project-featured {
+      .project-featured .project-body {
         display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+        gap: 32px;
+        align-items: start;
       }
-      .project-featured .project-image {
-        aspect-ratio: auto;
-        min-height: 280px;
-        border-right: 1px solid var(--border);
-        border-bottom: 0;
-      }
-      .project-featured .project-body { min-width: 0; }
     }
     .small {
       color: var(--muted);
@@ -398,6 +421,8 @@
       .credential, .support, .contact { padding: 22px; }
       section { margin-top: 44px; }
       .hero .actions .button { flex: 1 1 160px; }
+      .project-featured .actions { width: 100%; }
+      .project-featured .actions .button { flex: 1 1 150px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -498,11 +523,14 @@
                  target="_blank" rel="noopener noreferrer" aria-label="Open full-size contract recovery report preview">
                 <img src="projects/msp-operations/contract-recovery.png"
                      alt="Power BI contract recovery report showing a $28,860 billing gap and a 12.41% managed services gross margin"
+                     width="1450" height="824"
                      loading="lazy" decoding="async">
+                <span class="preview-caption">Open full-size report preview <span aria-hidden="true">↗</span></span>
               </a>
             </div>
 
             <div class="project-body">
+              <div class="project-summary">
               <span class="tag">Independent project · Simulated MSP data</span>
               <h3>MSP Operations &amp; Profitability</h3>
               <p class="question">Which managed service provider contracts need a billing correction or a pricing review?</p>
@@ -511,9 +539,11 @@
                 <strong>$28,860 in simulated underbilling</strong>
                 <p>At current costs, billing all eligible workstations would raise managed-services gross margin from 12.41% to 13.58%.</p>
               </div>
+              </div>
 
+              <div class="project-evidence">
               <p>Used Fabric pipelines and T-SQL to consolidate 28,600 service tickets, built a three-page Power BI report, and reconciled 24 months of operating profit in Excel.</p>
-              <p class="small">November 2024–October 2026</p>
+              <p class="small">Dataset period: November 2024–October 2026</p>
 
               <details>
                 <summary>Contract recommendations</summary>
@@ -532,6 +562,7 @@
                 <a class="button" href="projects/msp-operations/report/MSP%20Operations%20%26%20Profitability.pdf"
                    target="_blank" rel="noopener noreferrer">View Report (PDF)</a>
                 <a class="button primary" href="projects/msp-operations/index.html">Read Case Study</a>
+              </div>
               </div>
             </div>
           </article>
